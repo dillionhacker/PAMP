@@ -1,0 +1,196 @@
+/*
+   +----------------------------------------------------------------------+
+   | PHP Version 5                                                        |
+   +----------------------------------------------------------------------+
+   | Copyright (c) 2007 Nokia Corporation                                 |
+   +----------------------------------------------------------------------+
+   | This source file is subject to version 3.01 of the PHP license,      |
+   | that is bundled with this package in the file LICENSE, and is        |
+   | available through the world-wide-web at the following url:           |
+   | http://www.php.net/license/3_01.txt                                  |
+   | If you did not receive a copy of the PHP license and are unable to   |
+   | obtain it through the world-wide-web, please send a note to          |
+   | license@php.net so we can mail you a copy immediately.               |
+   +----------------------------------------------------------------------+
+ */
+
+ // This file is included from SAPI MMP
+
+#include "../components_symbian.h"
+
+/*
+ * PHP modules.
+ */
+
+#if defined(HAVE_CURL)
+STATICLIBRARY   STATICLIBRARY_NAME(php_curl.lib)
+#endif
+
+#if defined(HAVE_DOM)
+STATICLIBRARY   STATICLIBRARY_NAME(php_dom.lib)
+#endif
+
+#if defined(HAVE_LIBGD)
+STATICLIBRARY   STATICLIBRARY_NAME(php_gd.lib)
+#endif
+
+#if defined(HAVE_LIBXML)
+STATICLIBRARY   STATICLIBRARY_NAME(php_libxml.lib)
+#endif
+
+#if defined(HAVE_MBSTRING)
+STATICLIBRARY   STATICLIBRARY_NAME(php_mbstring.lib)
+#endif
+
+#if defined(HAVE_MYSQLI) 
+STATICLIBRARY   STATICLIBRARY_NAME(php_mysqli.lib)
+#endif
+
+#if defined(HAVE_MYSQL)
+STATICLIBRARY   STATICLIBRARY_NAME(php_mysql.lib)
+#endif
+
+#if defined(HAVE_PCRE)
+STATICLIBRARY   STATICLIBRARY_NAME(php_pcre.lib)
+#endif
+
+#if defined(HAVE_PHP_SESSION)
+STATICLIBRARY   STATICLIBRARY_NAME(php_session.lib)
+#endif
+
+#if defined(HAVE_SIMPLEXML)
+STATICLIBRARY   STATICLIBRARY_NAME(php_simplexml.lib)
+#endif
+
+#if defined(HAVE_TOKENIZER)
+STATICLIBRARY   STATICLIBRARY_NAME(php_tokenizer.lib)
+#endif
+
+#if defined(HAVE_XML)
+STATICLIBRARY   STATICLIBRARY_NAME(php_xml.lib)
+#endif
+
+#if defined(HAVE_XSL)
+STATICLIBRARY   STATICLIBRARY_NAME(php_xsl.lib)
+#endif
+
+#if defined(HAVE_ZLIB)
+STATICLIBRARY   STATICLIBRARY_NAME(php_zlib.lib)
+#endif
+
+
+/*
+ * S60 specific PHP modules.
+ */
+
+#if defined(HAVE_S60_CONTACTS)
+STATICLIBRARY   STATICLIBRARY_NAME(php_s60contacts.lib)
+#endif
+
+#if defined(HAVE_S60_CALENDAR)
+STATICLIBRARY   STATICLIBRARY_NAME(php_s60calendar.lib)
+#endif
+
+#if defined(HAVE_S60_INBOX)
+STATICLIBRARY   STATICLIBRARY_NAME(php_s60inbox.lib)
+#endif
+
+#if defined(HAVE_S60_LOCATION)
+STATICLIBRARY   STATICLIBRARY_NAME(php_s60location.lib)
+#endif
+
+#if defined(HAVE_S60_LOG)
+STATICLIBRARY   STATICLIBRARY_NAME(php_s60log.lib)
+#endif
+
+#if defined(HAVE_S60_PATHINFO)
+STATICLIBRARY   STATICLIBRARY_NAME(php_s60pathinfo.lib)
+#endif
+
+#if defined(HAVE_S60_SYSINFO)
+STATICLIBRARY   STATICLIBRARY_NAME(php_s60sysinfo.lib)
+#endif
+
+#if defined(HAVE_S60_TESTEXT)
+STATICLIBRARY   STATICLIBRARY_NAME(php_s60_testext.lib)
+#endif
+
+
+/*
+ * Static libaries needed by PHP modules.
+ *
+ * NOTE: Careful with the order.
+ */
+
+#if defined(HAVE_CURL)
+STATICLIBRARY   STATICLIBRARY_NAME(libcurl-7_16.lib)
+#endif
+
+#if defined(HAVE_LIBGD)
+STATICLIBRARY   STATICLIBRARY_NAME(libjpeg-6.lib)
+STATICLIBRARY   STATICLIBRARY_NAME(libpng-1_2.lib)
+#endif
+
+#if defined(HAVE_MYSQLI) || defined(HAVE_MYSQL)
+STATICLIBRARY   STATICLIBRARY_NAME(mysql_mysqlclient.lib)
+STATICLIBRARY   STATICLIBRARY_NAME(mysql_mysys.lib)
+#endif
+
+#if defined(HAVE_XSL)
+STATICLIBRARY   STATICLIBRARY_NAME(libxslt-1_1.lib)
+#endif
+
+#if defined(HAVE_XML) || defined(HAVE_LIBXML) || defined(HAVE_XSL)
+STATICLIBRARY   STATICLIBRARY_NAME(libxml2-2_6.lib)
+#endif
+
+
+/*
+  Dynamic libraries required by modules. Defined separately in order to 
+  avoid multiple defined DLL's in project. 
+*/
+// PlatformEnv.lib
+#if defined(HAVE_S60_PATHINFO) 
+LIBRARY         PlatformEnv.lib
+#endif
+
+#if defined(HAVE_S60_CONTACTS)
+LIBRARY         PbkEng.lib
+LIBRARY         charconv.lib 
+LIBRARY         cntmodel.lib
+LIBRARY         bafl.lib
+LIBRARY         hal.lib
+#endif
+
+#if defined(HAVE_S60_CALENDAR)
+//LIBRARY       CalenInterimUtils2.lib 
+LIBRARY         calinterimapi.lib 
+#endif
+
+
+#if defined(HAVE_S60_INBOX)
+LIBRARY         etext.lib 
+LIBRARY         msgs.lib  
+#endif
+
+#if defined(HAVE_S60_LOCATION)
+LIBRARY         lbs.lib
+#endif
+
+#if defined(HAVE_S60_SYSINFO)
+                
+LIBRARY         sysutil.lib
+LIBRARY         etel3rdparty.lib 
+LIBRARY         centralrepository.lib
+LIBRARY         aknnotify.lib 
+LIBRARY         eiksrv.lib 
+#endif
+
+#if defined(HAVE_S60_LOG)
+LIBRARY         logcli.lib 
+LIBRARY         logwrap.lib
+#endif
+
+LIBRARY         esock.lib
+LIBRARY         commdb.lib
+LIBRARY         insock.lib 

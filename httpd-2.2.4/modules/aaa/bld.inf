@@ -1,0 +1,38 @@
+/* Copyright 2007 Nokia Corporation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/*
+ * This is a build file for Symbian.
+ */
+
+PRJ_MMPFILES
+.\mod_auth_basic.mmp
+.\mod_auth_digest.mmp
+.\mod_authn_alias.mmp
+.\mod_authn_anon.mmp
+// FIXME: Not included, needs apr_dbd.h
+// .\mod_authn_dbd.mmp
+.\mod_authn_dbm.mmp
+.\mod_authn_default.mmp
+.\mod_authn_file.mmp
+// FIXME: Not included, needs ldap support.
+//.\mod_authnz_ldap.mmp
+.\mod_authz_dbm.mmp
+.\mod_authz_default.mmp
+.\mod_authz_groupfile.mmp
+.\mod_authz_host.mmp
+// FIXME: Not included, needs owner support.
+//.\mod_authz_owner.mmp
+.\mod_authz_user.mmp

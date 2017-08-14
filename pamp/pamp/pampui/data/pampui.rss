@@ -1,0 +1,176 @@
+/* Copyright 2007 Nokia Corporation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+NAME PPUI
+
+#include <eikon.rh>
+#include <avkon.rsg>
+#include <avkon.rh>
+#include <avkon.mbg>
+
+#include "pampui/private.hrh"
+#include "pampui/private.loc"
+
+
+RESOURCE RSS_SIGNATURE { }
+
+RESOURCE TBUF { buf = ""; }
+
+RESOURCE EIK_APP_INFO
+    {
+    status_pane = r_ppui_status_pane;
+    }
+
+
+RESOURCE STATUS_PANE_APP_MODEL r_ppui_status_pane
+    {
+    }
+
+
+// ---------------------------------------------------------
+//
+//   r_ppui_view_main
+//
+// ---------------------------------------------------------
+
+RESOURCE MENU_PANE r_ppui_start_menu
+    {
+    items=
+        {
+        MENU_ITEM { command = EPampCmdStartPamp;
+                    txt     = text_pampui_pamp; },
+        MENU_ITEM { command = EPampCmdStartHttpd;
+                    txt     = text_pampui_httpd; },
+        MENU_ITEM { command = EPampCmdStartMysqld;
+                    txt     = text_pampui_mysql; }
+        };
+    }
+
+RESOURCE MENU_PANE r_ppui_stop_menu
+    {
+    items=
+        {
+        MENU_ITEM { command = EPampCmdStopPamp;
+                    txt     = text_pampui_pamp; },
+        MENU_ITEM { command = EPampCmdStopHttpd;
+                    txt     = text_pampui_httpd; },
+        MENU_ITEM { command = EPampCmdStopMysqld;
+                    txt     = text_pampui_mysql; }
+        };
+    }
+
+RESOURCE MENU_PANE r_ppui_settings_menu
+    {
+    items=
+        {
+        MENU_ITEM { command = EPampCmdSettingsHttpd;
+                    txt     = text_pampui_httpd; }
+        };
+    }
+
+RESOURCE MENU_PANE r_ppui_arguments_menu
+    {
+    items=
+        {
+        MENU_ITEM { command = EPampCmdArgumentsHttpd;
+                    txt     = text_pampui_httpd; },
+        MENU_ITEM { command = EPampCmdArgumentsMysqld;
+                    txt     = text_pampui_mysql; }
+        };
+    }
+
+RESOURCE MENU_PANE r_ppui_main_menu
+    {
+    items=
+        {
+        MENU_ITEM { cascade = r_ppui_start_menu;
+                    command = EPampCmdStart;
+                    txt     = text_pampui_softkey_start; },
+        MENU_ITEM { cascade = r_ppui_stop_menu;
+                    command = EPampCmdStop;
+                    txt     = text_pampui_softkey_stop; },
+        MENU_ITEM { cascade = r_ppui_settings_menu;
+                    txt     = text_pampui_softkey_settings; },
+        MENU_ITEM { cascade = r_ppui_arguments_menu;
+                    txt     = text_pampui_softkey_arguments; },
+        MENU_ITEM { command = EPampCmdStartWLAN;
+                    txt     = text_pampui_softkey_start_wlan; },
+        MENU_ITEM { command = EPampCmdCloseWLAN;
+                    txt     = text_pampui_softkey_close_wlan; },
+        MENU_ITEM { command = EPampCmdAttachWLAN;
+                    txt     = text_pampui_softkey_attach_wlan; },
+        MENU_ITEM { command = EAknCmdExit;
+                    txt     = text_pampui_softkey_exit; }
+        };
+    }
+
+RESOURCE MENU_BAR r_ppui_main_menubar
+    {
+    titles=
+        {
+        MENU_TITLE { menu_pane=r_ppui_main_menu; txt="View"; }
+        };
+    }
+
+RESOURCE AVKON_VIEW r_ppui_main_view
+    {
+    menubar=r_ppui_main_menubar;
+    cba=R_AVKON_SOFTKEYS_OPTIONS_EXIT;
+    }
+
+
+// ---------------------------------------------------------
+//
+//   Dialogs
+//
+// ---------------------------------------------------------
+
+RESOURCE DIALOG r_ppui_start_wlan
+    {
+    flags = EAknDialogGenericNoteFlags | EEikDialogFlagWait;
+    buttons = R_AVKON_SOFTKEYS_YES_NO;
+    items = 
+        {
+        DLG_LINE
+            {
+            id = EGeneralQuery;
+            type = EAknCtNote;
+            control = AVKON_NOTE
+                {
+                layout         = EGeneralLayout;
+                singular_label = text_pampui_start_wlan;
+                };
+            }
+        };
+    }
+
+
+RESOURCE DIALOG r_ppui_attach_wlan
+    {
+    flags = EAknDialogGenericNoteFlags | EEikDialogFlagWait;
+    buttons = R_AVKON_SOFTKEYS_YES_NO;
+    items = 
+        {
+        DLG_LINE
+            {
+            type = EAknCtNote;
+            control = AVKON_NOTE
+                {
+                layout         = EGeneralLayout;
+                singular_label = text_pampui_attach_wlan;
+                };
+            }
+        };
+    }

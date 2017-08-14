@@ -1,0 +1,90 @@
+/* Copyright 2007 Nokia Corporation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/*
+ * This is a build file for Symbian.
+ */
+
+#include "../mmp.conf"
+
+
+MACRO           HAVE_OPENSSL
+MACRO           HAVE_OPENSSL_ENGINE_H
+// FIXME: Don't know if we have this is ok, but without it, 
+// FIXME: <openssl/engine.h> is not included and if it isn't, then 
+// FIXME: compilation of ssl_engine_init.c will fail on line 104 since 
+// FIXME: RSA_F4 is not defined. It's defined in openssl/rsa.h which is 
+// FIXME: included by openssl/engine.h.
+MACRO           HAVE_ENGINE_INIT
+
+#if defined(HAVE_MOD_SSL_BUILTIN)
+TARGET          STATICLIBRARY_NAME(mod_ssl.lib)
+TARGETTYPE      LIB
+MACRO           NO_SYMBIAN_EXPORT_BY_NAME
+#else
+TARGET          httpd22-mod_ssl.so
+TARGETTYPE      DLL
+EPOCALLOWDLLDATA
+
+#if defined(WINS)
+deffile ..\bwins.def
+#else
+deffile ..\eabi.def
+#endif
+
+CAPABILITY      MWS_DLL_CAPABILITIES
+#endif
+
+// Openssl's ps_compat.h includes "opensslconf.h", which resides in openssl.
+// I think it should work but at least WINSCW disagrees, so we add the 
+// openssl directory among the include directories.
+USERINCLUDE     \epoc32\include\stdapis\openssl
+// mod_status.h
+USERINCLUDE     ..\generators
+
+SOURCEPATH      .
+SOURCE          mod_ssl.c
+SOURCE          ssl_engine_config.c
+SOURCE          ssl_engine_dh.c
+SOURCE          ssl_engine_init.c
+SOURCE          ssl_engine_io.c
+SOURCE          ssl_engine_kernel.c
+SOURCE          ssl_engine_log.c
+SOURCE          ssl_engine_mutex.c
+SOURCE          ssl_engine_pphrase.c
+SOURCE          ssl_engine_rand.c
+SOURCE          ssl_engine_vars.c
+SOURCE          ssl_expr.c
+SOURCE          ssl_expr_eval.c
+SOURCE          ssl_expr_parse.c
+SOURCE          ssl_expr_scan.c
+SOURCE          ssl_scache.c
+SOURCE          ssl_scache_dbm.c
+SOURCE          ssl_scache_dc.c
+SOURCE          ssl_scache_shmcb.c
+SOURCE          ssl_util.c
+SOURCE          ssl_util_ssl.c
+SOURCE          rsa_depr.c
+
+
+#if !defined(HAVE_MOD_SSL_BUILTIN)
+LIBRARY         libhttpd.lib
+LIBRARY         libaprutil.lib
+LIBRARY         libapr.lib
+LIBRARY         libcrypto.lib
+LIBRARY         libssl.lib
+LIBRARY         libc.lib
+LIBRARY         euser.lib
+#endif

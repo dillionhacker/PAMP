@@ -1,0 +1,39 @@
+EXPORTS
+	_ZN3Mws11CArguments110ConstructLEv @ 1 NONAME
+	_ZN3Mws11CArguments112InternalizeLER11RReadStream @ 2 NONAME
+	_ZN3Mws11CArguments112InternalizeLERK7TDesC16 @ 3 NONAME
+	_ZN3Mws11CArguments14NewLEv @ 4 NONAME
+	_ZN3Mws11CArguments14SetLERK7TDesC16 @ 5 NONAME
+	_ZN3Mws11CArguments15CopyLERKS0_ @ 6 NONAME
+	_ZN3Mws11CArguments15NewLCEv @ 7 NONAME
+	_ZN3Mws11CArguments19ReadDataLER11RReadStream @ 8 NONAME
+	_ZN3Mws11CArguments1C1Ev @ 9 NONAME
+	_ZN3Mws11CArguments1C2Ev @ 10 NONAME
+	_ZN3Mws11CArguments1D0Ev @ 11 NONAME
+	_ZN3Mws11CArguments1D1Ev @ 12 NONAME
+	_ZN3Mws11CArguments1D2Ev @ 13 NONAME
+	_ZN3Mws18CHttpdSettingsView4NewLEiPNS_25MHttpdSettingsViewHandlerEPKNS_15THttpdSettings1E @ 14 NONAME
+	_ZN3Mws18CHttpdSettingsView5NewLCEiPNS_25MHttpdSettingsViewHandlerEPKNS_15THttpdSettings1E @ 15 NONAME
+	_ZN3Mws18CHttpdSettingsViewD0Ev @ 16 NONAME
+	_ZN3Mws18CHttpdSettingsViewD1Ev @ 17 NONAME
+	_ZN3Mws18CHttpdSettingsViewD2Ev @ 18 NONAME
+	_ZN3Mws21CArgumentsQueryDialog4NewLER6TDes16NS0_8TButtonsERKN15CAknQueryDialog5TToneE @ 19 NONAME
+	_ZN3Mws21CArgumentsQueryDialog4NewLERK7TDesC16R6TDes16NS0_8TButtonsERKN15CAknQueryDialog5TToneE @ 20 NONAME
+	_ZN3Mws21CArgumentsQueryDialog5NewLCER6TDes16NS0_8TButtonsERKN15CAknQueryDialog5TToneE @ 21 NONAME
+	_ZN3Mws21CArgumentsQueryDialog5NewLCERK7TDesC16R6TDes16NS0_8TButtonsERKN15CAknQueryDialog5TToneE @ 22 NONAME
+	_ZN3Mws21CArgumentsQueryDialogC1ER6TDes16RKN15CAknQueryDialog5TToneE @ 23 NONAME
+	_ZN3Mws21CArgumentsQueryDialogC2ER6TDes16RKN15CAknQueryDialog5TToneE @ 24 NONAME
+	_ZN3Mws21CArgumentsQueryDialogD0Ev @ 25 NONAME
+	_ZN3Mws21CArgumentsQueryDialogD1Ev @ 26 NONAME
+	_ZN3Mws21CArgumentsQueryDialogD2Ev @ 27 NONAME
+	_ZNK3Mws11CArguments110WriteDataLER12RWriteStream @ 28 NONAME
+	_ZNK3Mws11CArguments112ExternalizeLER12RWriteStream @ 29 NONAME
+	_ZNK3Mws11CArguments112ExternalizeLERK7TDesC16 @ 30 NONAME
+	_ZNK3Mws11CArguments13GetEv @ 31 NONAME
+	_ZTIN3Mws11CArguments1E @ 32 NONAME ; #<TI>#
+	_ZTIN3Mws18CHttpdSettingsViewE @ 33 NONAME ; #<TI>#
+	_ZTIN3Mws21CArgumentsQueryDialogE @ 34 NONAME ; #<TI>#
+	_ZTVN3Mws11CArguments1E @ 35 NONAME ; #<VT>#
+	_ZTVN3Mws18CHttpdSettingsViewE @ 36 NONAME ; #<VT>#
+	_ZTVN3Mws21CArgumentsQueryDialogE @ 37 NONAME ; #<VT>#
+

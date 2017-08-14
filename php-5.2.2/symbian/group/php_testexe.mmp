@@ -1,0 +1,269 @@
+/*
+   +----------------------------------------------------------------------+
+   | PHP Version 5                                                        |
+   +----------------------------------------------------------------------+
+   | Copyright (c) 2007 Nokia Corporation                                 |
+   +----------------------------------------------------------------------+
+   | This source file is subject to version 3.01 of the PHP license,      |
+   | that is bundled with this package in the file LICENSE, and is        |
+   | available through the world-wide-web at the following url:           |
+   | http://www.php.net/license/3_01.txt                                  |
+   | If you did not receive a copy of the PHP license and are unable to   |
+   | obtain it through the world-wide-web, please send a note to          |
+   | license@php.net so we can mail you a copy immediately.               |
+   +----------------------------------------------------------------------+
+ */
+
+#include "mmp.conf"
+
+
+TARGET          php.exe
+TARGETTYPE      EXE
+
+UID             0x1000008d 0x2000BB8E
+
+START RESOURCE  php_reg.rss
+    HEADER
+END
+
+CAPABILITY      NetworkServices\
+                ReadUserData\
+                WriteUserData\
+                LocalServices\
+                UserEnvironment\
+                ReadDeviceData\
+                WriteDeviceData\
+                ProtSrv\
+                PowerMgmt
+
+#include "../components_symbian.h"
+
+EPOCHEAPSIZE    1000000 20000000
+EPOCSTACKSIZE   0x12000
+
+SYSTEMINCLUDE   \epoc32\include\stdapis
+SYSTEMINCLUDE   \epoc32\include 
+
+
+SYSTEMINCLUDE   ..\..
+SYSTEMINCLUDE   ..\..\Zend
+SYSTEMINCLUDE   ..\..\Main
+SYSTEMINCLUDE   ..\..\ext\standard
+
+SYSTEMINCLUDE   ..\..\ext\date\lib
+
+USERINCLUDE     ..
+USERINCLUDE     ..\..\tsrm
+USERINCLUDE     ..\..\regex
+USERINCLUDE     ..\..\ext\date\
+
+SOURCEPATH      ..\..\zend
+SOURCE          zend.c
+SOURCE          zend_alloc.c
+SOURCE          zend_API.c
+SOURCE          zend_builtin_functions.c
+SOURCE          zend_compile.c
+SOURCE          zend_constants.c
+SOURCE          zend_default_classes.c
+SOURCE          zend_dynamic_array.c
+SOURCE          zend_exceptions.c
+SOURCE          zend_execute.c
+SOURCE          zend_execute_API.c
+SOURCE          zend_extensions.c
+SOURCE          zend_hash.c
+SOURCE          zend_highlight.c
+SOURCE          zend_indent.c
+SOURCE          zend_ini.c
+SOURCE          zend_ini_parser.c
+SOURCE          zend_ini_scanner.c
+SOURCE          zend_interfaces.c
+SOURCE          zend_iterators.c
+SOURCE          zend_language_parser.c
+SOURCE          zend_language_scanner.c
+SOURCE          zend_list.c
+SOURCE          zend_llist.c
+SOURCE          zend_multibyte.c
+SOURCE          zend_objects.c
+SOURCE          zend_objects_API.c
+SOURCE          zend_object_handlers.c
+SOURCE          zend_opcode.c
+SOURCE          zend_operators.c
+SOURCE          zend_ptr_stack.c
+SOURCE          zend_qsort.c
+SOURCE          zend_sprintf.c
+SOURCE          zend_stack.c
+SOURCE          zend_stream.c
+SOURCE          zend_strtod.c
+SOURCE          zend_ts_hash.c
+SOURCE          zend_variables.c
+
+SOURCEPATH      ..\..\main
+SOURCE          alloca.c 
+SOURCE          fopen_wrappers.c
+SOURCE          main.c   
+SOURCE          mergesort.c
+SOURCE          network.c
+SOURCE          output.c 
+SOURCE          php_content_types.c
+SOURCE          php_ini.c
+SOURCE          php_logos.c
+SOURCE          php_open_temporary_file.c
+SOURCE          php_scandir.c
+SOURCE          php_sprintf.c
+SOURCE          php_ticks.c
+SOURCE          php_variables.c
+SOURCE          reentrancy.c
+SOURCE          rfc1867.c
+SOURCE          safe_mode.c
+SOURCE          SAPI.c   
+SOURCE          snprintf.c
+SOURCE          spprintf.c
+SOURCE          strlcat.c
+SOURCE          strlcpy.c
+SOURCE          internal_functions.c
+
+SOURCEPATH      ..\..\main\streams
+SOURCE          cast.c
+SOURCE          filter.c
+SOURCE          memory.c
+SOURCE          mmap.c
+SOURCE          plain_wrapper.c
+SOURCE          streams.c
+SOURCE          transports.c
+SOURCE          userspace.c
+SOURCE          xp_socket.c
+
+SOURCEPATH      ..\..\tsrm
+SOURCE          TSRM.c
+SOURCE          tsrm_nw.c
+SOURCE          tsrm_strtok_r.c
+SOURCE          tsrm_virtual_cwd.c
+
+SOURCEPATH      ..\..\sapi\cli
+SOURCE          php_cli.c
+SOURCE          getopt.c
+
+SOURCEPATH      ..\..\ext\standard
+SOURCE          array.c
+SOURCE          assert.c
+SOURCE          base64.c
+SOURCE          basic_functions.c
+SOURCE          browscap.c
+SOURCE          crc32.c
+SOURCE          credits.c
+SOURCE          crypt.c
+SOURCE          css.c
+SOURCE          cyr_convert.c
+SOURCE          datetime.c
+SOURCE          dir.c
+SOURCE          dl.c
+SOURCE          dns.c
+SOURCE          exec.c
+SOURCE          file.c
+SOURCE          filestat.c
+SOURCE          filters.c
+SOURCE          flock_compat.c
+SOURCE          formatted_print.c
+SOURCE          fsock.c
+SOURCE          ftok.c
+SOURCE          ftp_fopen_wrapper.c
+SOURCE          head.c
+SOURCE          html.c
+SOURCE          http.c
+SOURCE          http_fopen_wrapper.c
+SOURCE          image.c
+SOURCE          incomplete_class.c
+SOURCE          info.c
+SOURCE          iptc.c
+SOURCE          lcg.c
+SOURCE          levenshtein.c
+SOURCE          link.c
+SOURCE          mail.c
+SOURCE          math.c
+SOURCE          md5.c
+SOURCE          metaphone.c
+SOURCE          microtime.c
+SOURCE          pack.c
+SOURCE          pageinfo.c
+SOURCE          php_fopen_wrapper.c
+SOURCE          proc_open.c
+SOURCE          quot_print.c
+SOURCE          rand.c
+SOURCE          reg.c
+SOURCE          scanf.c
+SOURCE          sha1.c
+SOURCE          soundex.c
+SOURCE          streamsfuncs.c
+SOURCE          string.c
+SOURCE          strnatcmp.c
+SOURCE          syslog.c
+SOURCE          type.c
+SOURCE          uniqid.c
+SOURCE          url.c
+SOURCE          url_scanner.c
+SOURCE          url_scanner_ex.c
+SOURCE          user_filters.c
+SOURCE          uuencode.c
+SOURCE          var.c
+SOURCE          var_unserializer.c
+SOURCE          versioning.c
+
+SOURCEPATH      ..\..\ext\reflection
+SOURCE          php_reflection.c
+
+SOURCEPATH      ..\..\ext\date
+SOURCE          php_date.c
+
+SOURCEPATH      ..\..\ext\date\lib
+SOURCE          astro.c
+SOURCE          dow.c
+SOURCE          parse_date.c
+SOURCE          parse_tz.c
+SOURCE          timelib.c
+SOURCE          tm2unixtime.c
+SOURCE          unixtime2tm.c
+
+SOURCEPATH      ..\..\regex
+SOURCE          regcomp.c
+SOURCE          regerror.c
+SOURCE          regexec.c
+SOURCE          regfree.c
+SOURCE          split.c
+
+#ifdef HAVE_MYSQLI
+SYSTEMINCLUDE   \epoc32\include\mysql-5.0
+
+SOURCEPATH      ..\..\ext\mysqli
+SOURCE          mysqli.c
+SOURCE          mysqli_api.c
+SOURCE          mysqli_driver.c
+SOURCE          mysqli_embedded.c
+SOURCE          mysqli_exception.c
+SOURCE          mysqli_fe.c
+SOURCE          mysqli_nonapi.c
+SOURCE          mysqli_prop.c
+SOURCE          mysqli_repl.c
+SOURCE          mysqli_report.c
+SOURCE          mysqli_warning.c
+#endif
+
+
+#ifdef GCCE
+STATICLIBRARY   libcrt0_gcce.lib
+#else
+STATICLIBRARY   libcrt0.lib
+#endif
+
+#ifdef HAVE_MYSQLI
+STATICLIBRARY   STATICLIBRARY_NAME(libmysql.lib)
+#endif
+
+LIBRARY         euser.lib
+LIBRARY         libc.lib
+LIBRARY         libpthread.lib
+LIBRARY         libm.lib
+LIBRARY         libdl.lib
+LIBRARY         libz.lib
+LIBRARY         libcrypt.lib
+LIBRARY         efsrv.lib
+

@@ -1,0 +1,225 @@
+#ifndef custom_config_h
+#define custom_config_h
+/* Copyright 2008 Nokia Corporation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
+/***************************************************************************
+ *
+ * USE_MWS_ROOT
+ *
+ * - If NOT set, HTTPD_ROOT will be the default "c:/data/apache".
+ * - If set (to anything), HTTPD_ROOT will be "/data/web server".
+ */
+//#define USE_MWS_ROOT
+
+
+/***************************************************************************
+ *
+ * PlatID_S60_DEFAULT
+ *
+ * Defines the platform identification code used in the package file.
+ *
+ * - If not explicitly defined, will be set to the platform identifier
+ *   of S60 3rd edition.
+ * - Otherwise the defined value will be used verbatim.
+ */
+//#define PlatID_S60_DEFAULT 0x...
+
+
+/***************************************************************************
+ *
+ * UID3_...
+ *
+ * Default value (see symbian_httpd_config.h) will be used, if not explicitly 
+ * defined.
+ */
+//#define UID3_HTTPDS              0x...
+//#define UID3_HTTPDUI             
+
+
+/***************************************************************************
+ *
+ * Package UIDs
+ *
+ * Default value (see symbian_httpd_config.h) will be used, if not explicitly 
+ * defined.
+ */
+//#define UID_PKG_HTTPD
+//#define UID_PKG_HTTPDCONF
+//#define UID_PKG_HTDOCS
+//#define UID_PKG_HTTPDUTIL
+//#define UID_PKG_HTTPDUI
+
+
+/*
+ * HTTPDS
+ *
+ * The backup registration file must be put into the private directory
+ * of the component.
+ *
+ * That is, if you explicitly define UID3_HTTPDS then you must change
+ * the HTTPDS_BACKUP_TARGET. If your backup registration needs differs 
+ * from the default (that is, the default file is not sufficient), then 
+ * you have to change the HTTPD_BACKUP_SOURCE as well. 
+ *
+ * NOTE: The paths must make sense in the httpd...\symbian\sis directory.
+ */
+
+//#define HTTPDS_BACKUP_SOURCE "...\backup_registration.xml"
+//#define HTTPDS_BACKUP_TARGET "!:\private\<UID3_HTTPDS>\backup_registration.xml"
+
+
+/***************************************************************************
+ *
+ * Capabilities
+ *
+ * Check symbian_httpd_config.h for the default values.
+ */
+
+/* This defines the capabilities of the web server itself. It defines,
+ * on the one hand, what the web server (or some module or script) at
+ * most is capable of and, on the other hand, what capabilites a 
+ * module must have in order to the loadable into the web server.
+ */
+//#define MWS_HTTPDS_CAPABILITIES LocalServices NetworkServices ...
+
+/* This defines the capabilities of the Apache core DLLs (libhttpd, 
+ * libapr, libaprutil) and modules. The capabilities must be a superset 
+ * of the ones defined in MWS_HTTPDS_CAPABILITIES. 
+ *
+ * If NOT defined, defaults to MWS_HTTPDS_CAPABILITIES.
+ */
+//#define MWS_DLL_CAPABILITIES LocalServices NetworkServices ...
+
+/* This defines the capabilities of the client DLL (httpdc). The
+ * capabilities must be a superset of the capabilites of the EXE that 
+ * will link to that library. 
+ *
+ * If NOT defined, defaults to the maximum amount of capabilities
+ * available to an application signed using Symbian's /Open Signed
+ * Online/ mechanism.
+ */
+//#define MWS_HTTPDC_CAPABILITIES LocalServices NetworkServices ...
+
+
+/* This defines the capabilities of the utility DLL (httpdutil). The
+ * capabilities must be a superset of the capabilites of the EXE that 
+ * will link to that library. 
+ *
+ * If NOT defined, defaults to the maximum amount of capabilities
+ * available to an application signed using Symbian's /Open Signed
+ * Online/ mechanism.
+ */
+//#define MWS_HTTPDUTIL_CAPABILITIES LocalServices NetworkServices ...
+
+
+/***************************************************************************
+ *
+ * Installation
+ *
+ * - By default, EVERYTHING is included in the sis-file.
+ * - By defining SIS_EXCLUDE_ALL you can change it so that NOTHING is
+ *   installed by default.
+ * 
+ * If you want to exclude a few components, then just define the
+ * corresponding SIS_EXCLUDE_XYZ defines.
+ *
+ * If you only want to include a few components, then define
+ * SIS_EXCLUDE_ALL and the appropriate SIS_INCLUDE_XYZ defines.
+ *
+ *
+ * 
+ */
+//#define SIS_EXLUDE_ALL
+
+//#define SIS_[INCLUDE|EXCLUDE]_HTTPDS
+//#define SIS_[INCLUDE|EXCLUDE]_HTTPDC              
+
+//#define SIS_[INCLUDE|EXCLUDE]_LIBHTTPD            
+//#define SIS_[INCLUDE|EXCLUDE]_LIBAPR              
+//#define SIS_[INCLUDE|EXCLUDE]_LIBAPRUTIL          
+
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_ACCESS          
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_ALIAS           
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_ASIS            
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_AUTH            
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_AUTHNZ_LDAP     
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_AUTHN_ALIAS     
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_AUTHN_ANON      
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_AUTHN_DBD       
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_AUTHN_DBM       
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_AUTHN_DEFAULT   
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_AUTHN_FILE      
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_AUTHZ_DBM       
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_AUTHZ_DEFAULT   
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_AUTHZ_GROUPFILE 
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_AUTHZ_HOST      
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_AUTHZ_USER      
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_AUTH_ANON       
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_AUTH_BASIC      
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_AUTH_DIGEST     
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_AUTOINDEX       
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_BUCKETEER       
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_CACHE           
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_CASE_FILTER     
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_CASE_FILTER_IN  
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_CERN_META       
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_CHARSET_LITE    
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_DAV             
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_DAV_FS          
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_DAV_LOCK        
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_DEFLATE         
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_DIR             
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_DUMPIO          
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_ECHO            
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_ENV             
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_EXAMPLE         
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_EXPIRES         
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_EXT_FILTER      
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_FILTER          
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_HEADERS         
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_IDENT           
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_IMAGEMAP        
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_IMAP            
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_INCLUDE         
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_INFO            
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_LOGIO           
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_LOG_CONFIG      
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_LOG_FORENSIC    
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_MIME            
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_MIME_MAGIC      
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_NEGOTIATION     
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_PROXY           
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_PROXY_AJP       
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_PROXY_BALANCER  
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_PROXY_CONNECT   
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_PROXY_FTP       
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_PROXY_HTTP      
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_REWRITE         
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_SETENVIF        
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_SPELING         
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_SSL             
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_STATUS          
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_UNIQUE_ID       
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_USERDIR         
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_USERTRACK       
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_VERSION         
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_VHOST_ALIAS     
+
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_S60             
+//#define SIS_[INCLUDE|EXCLUDE]_MOD_SYMBIAN         
+
+#endif

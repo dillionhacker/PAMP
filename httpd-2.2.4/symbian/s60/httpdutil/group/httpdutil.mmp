@@ -1,0 +1,70 @@
+/* Copyright 2006 Nokia Corporation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+#include "../../../config/mmp.conf"
+
+
+TARGET          httpdutil.dll
+TARGETTYPE      DLL
+
+CAPABILITY      MWS_HTTPDUTIL_CAPABILITIES
+
+NOSTRICTDEF
+
+SYSTEMINCLUDE   \epoc32\include\mws
+SYSTEMINCLUDE   \epoc32\include
+SYSTEMINCLUDE   ..\public
+
+USERINCLUDE     ..\private
+
+START BITMAP    httpdutil.mbm
+HEADER
+TARGETPATH      \resource\apps
+SOURCEPATH      ..\data
+SOURCE          c24 apache_pb_176x17.bmp
+SOURCE          c24 apache_pb_248x24.bmp
+END
+
+START RESOURCE  ..\data\httpdutil.rss
+  HEADER
+  TARGETPATH      \resource\apps
+END
+
+SOURCEPATH      ..\src
+SOURCE          httpdutil.cpp
+SOURCE          httpdutil_clistsettings.cpp
+SOURCE          httpdutil_csettingslist.cpp
+SOURCE          mws_carguments.cpp
+SOURCE          mws_cargumentsquerydialog.cpp
+SOURCE          mws_chttpdsettingsview.cpp
+
+LIBRARY         aknnotify.lib
+LIBRARY         apengine.lib
+LIBRARY         avkon.lib  
+LIBRARY         bafl.lib
+LIBRARY         commdb.lib 
+LIBRARY         cone.lib 
+LIBRARY         efsrv.lib
+LIBRARY         eikcoctl.lib
+LIBRARY         eikcore.lib  
+LIBRARY         eikdlg.lib 
+LIBRARY         eiksrv.lib  
+LIBRARY         esock.lib 
+LIBRARY         estor.lib
+LIBRARY         euser.lib
+LIBRARY         fbscli.lib
+LIBRARY         insock.lib 
+
+LIBRARY         httpdc.lib

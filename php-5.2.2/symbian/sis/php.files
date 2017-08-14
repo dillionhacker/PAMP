@@ -1,0 +1,2 @@
+"EPOC32\release\PLATFORM\BUILD\php.exe" -"!:\sys\bin\php.exe"
+"EPOC32\data\php_reg.rsc"               -"!:\private\10003a3f\import\apps\php_reg.rsc"

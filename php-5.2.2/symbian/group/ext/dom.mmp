@@ -1,0 +1,57 @@
+/*
+   +----------------------------------------------------------------------+
+   | PHP Version 5                                                        |
+   +----------------------------------------------------------------------+
+   | Copyright (c) 2008 Nokia Corporation                                 |
+   +----------------------------------------------------------------------+
+   | This source file is subject to version 3.01 of the PHP license,      |
+   | that is bundled with this package in the file LICENSE, and is        |
+   | available through the world-wide-web at the following url:           |
+   | http://www.php.net/license/3_01.txt                                  |
+   | If you did not receive a copy of the PHP license and are unable to   |
+   | obtain it through the world-wide-web, please send a note to          |
+   | license@php.net so we can mail you a copy immediately.               |
+   +----------------------------------------------------------------------+
+ */
+
+#include "mmp.conf"
+
+
+TARGET          STATICLIBRARY_NAME(php_dom.lib)
+TARGETTYPE      LIB
+
+SYSTEMINCLUDE   \epoc32\include\libxml2-2.6
+
+SOURCEPATH      ..\..\..\ext\dom
+SOURCE          php_dom.c
+SOURCE          attr.c
+SOURCE          cdatasection.c
+SOURCE          characterdata.c
+SOURCE          comment.c
+SOURCE          document.c
+SOURCE          documentfragment.c
+SOURCE          documenttype.c
+SOURCE          dom_iterators.c
+SOURCE          domconfiguration.c
+SOURCE          domerror.c
+SOURCE          domerrorhandler.c
+SOURCE          domexception.c
+SOURCE          domimplementation.c
+SOURCE          domimplementationlist.c
+SOURCE          domimplementationsource.c
+SOURCE          domlocator.c
+SOURCE          domstringlist.c
+SOURCE          element.c
+SOURCE          entity.c
+SOURCE          entityreference.c
+SOURCE          namednodemap.c
+SOURCE          namelist.c
+SOURCE          node.c
+SOURCE          nodelist.c
+SOURCE          notation.c
+SOURCE          processinginstruction.c
+SOURCE          string_extend.c
+SOURCE          text.c
+SOURCE          typeinfo.c
+SOURCE          userdatahandler.c
+SOURCE          xpath.c

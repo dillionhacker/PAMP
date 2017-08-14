@@ -1,0 +1,112 @@
+/*
+   +----------------------------------------------------------------------+
+   | PHP Version 5                                                        |
+   +----------------------------------------------------------------------+
+   | Copyright (c) 2007 Nokia Corporation                                 |
+   +----------------------------------------------------------------------+
+   | This source file is subject to version 3.01 of the PHP license,      |
+   | that is bundled with this package in the file LICENSE, and is        |
+   | available through the world-wide-web at the following url:           |
+   | http://www.php.net/license/3_01.txt                                  |
+   | If you did not receive a copy of the PHP license and are unable to   |
+   | obtain it through the world-wide-web, please send a note to          |
+   | license@php.net so we can mail you a copy immediately.               |
+   +----------------------------------------------------------------------+
+ */
+
+#include "mmp.conf"
+
+
+TARGET          STATICLIBRARY_NAME(php_mbstring.lib)
+TARGETTYPE      LIB 
+
+SYSTEMINCLUDE   ..\..\..\ext\mbstring\libmbfl
+SYSTEMINCLUDE   ..\..\..\ext\mbstring\libmbfl\mbfl
+SYSTEMINCLUDE   ..\..\..\ext\mbstring\libmbfl\filters
+SYSTEMINCLUDE   ..\..\..\ext\mbstring\libmbfl\nls
+
+MACRO           HAVE_CONFIG_H
+
+SOURCEPATH      ..\..\..\ext\mbstring
+SOURCE          mbstring.c
+SOURCE          mb_gpc.c
+SOURCE          php_mbregex.c
+SOURCE          php_unicode.c
+
+SOURCEPATH      ..\..\..\ext\mbstring\libmbfl\mbfl
+SOURCE          mbfilter.c
+SOURCE          mbfilter_8bit.c
+SOURCE          mbfilter_pass.c
+SOURCE          mbfilter_wchar.c
+SOURCE          mbfl_allocators.c
+SOURCE          mbfl_convert.c
+SOURCE          mbfl_encoding.c
+SOURCE          mbfl_filter_output.c
+SOURCE          mbfl_ident.c
+SOURCE          mbfl_language.c
+SOURCE          mbfl_memory_device.c
+SOURCE          mbfl_string.c
+
+SOURCEPATH      ..\..\..\ext\mbstring\libmbfl\filters
+SOURCE          html_entities.c
+SOURCE          mbfilter_7bit.c
+SOURCE          mbfilter_armscii8.c
+SOURCE          mbfilter_ascii.c
+SOURCE          mbfilter_base64.c
+SOURCE          mbfilter_big5.c
+SOURCE          mbfilter_byte2.c
+SOURCE          mbfilter_byte4.c
+SOURCE          mbfilter_cp1251.c
+SOURCE          mbfilter_cp1252.c
+SOURCE          mbfilter_cp51932.c
+SOURCE          mbfilter_cp866.c
+SOURCE          mbfilter_cp932.c
+SOURCE          mbfilter_cp936.c
+SOURCE          mbfilter_euc_cn.c
+SOURCE          mbfilter_euc_jp.c
+SOURCE          mbfilter_euc_jp_win.c
+SOURCE          mbfilter_euc_kr.c
+SOURCE          mbfilter_euc_tw.c
+SOURCE          mbfilter_htmlent.c
+SOURCE          mbfilter_hz.c
+SOURCE          mbfilter_iso2022_jp_ms.c
+SOURCE          mbfilter_iso2022_kr.c
+SOURCE          mbfilter_iso8859_1.c
+SOURCE          mbfilter_iso8859_10.c
+SOURCE          mbfilter_iso8859_13.c
+SOURCE          mbfilter_iso8859_14.c
+SOURCE          mbfilter_iso8859_15.c
+SOURCE          mbfilter_iso8859_16.c
+SOURCE          mbfilter_iso8859_2.c
+SOURCE          mbfilter_iso8859_3.c
+SOURCE          mbfilter_iso8859_4.c
+SOURCE          mbfilter_iso8859_5.c
+SOURCE          mbfilter_iso8859_6.c
+SOURCE          mbfilter_iso8859_7.c
+SOURCE          mbfilter_iso8859_8.c
+SOURCE          mbfilter_iso8859_9.c
+SOURCE          mbfilter_jis.c
+SOURCE          mbfilter_koi8r.c
+SOURCE          mbfilter_qprint.c
+SOURCE          mbfilter_sjis.c
+SOURCE          mbfilter_ucs2.c
+SOURCE          mbfilter_ucs4.c
+SOURCE          mbfilter_uhc.c
+SOURCE          mbfilter_utf16.c
+SOURCE          mbfilter_utf32.c
+SOURCE          mbfilter_utf7.c
+SOURCE          mbfilter_utf7imap.c
+SOURCE          mbfilter_utf8.c
+SOURCE          mbfilter_uuencode.c
+
+SOURCEPATH      ..\..\..\ext\mbstring\libmbfl\nls
+SOURCE          nls_de.c
+SOURCE          nls_en.c
+SOURCE          nls_hy.c
+SOURCE          nls_ja.c
+SOURCE          nls_kr.c
+SOURCE          nls_neutral.c
+SOURCE          nls_ru.c
+SOURCE          nls_tr.c
+SOURCE          nls_uni.c
+SOURCE          nls_zh.c

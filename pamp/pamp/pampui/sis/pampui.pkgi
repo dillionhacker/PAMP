@@ -1,0 +1,47 @@
+/* Copyright 2007 Nokia Corporation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+#include "../public/pampui/guidspampui.hrh"
+#include "../public/pampui/versionpampui.hrh"
+
+
+; Languages
+;
+&EN
+
+; Localaized vendor name
+;
+%{"Nokia Research Center"}
+
+; Global vendor name
+;
+:"Nokia Research Center"
+
+; Package UID is the 3rd UID of the EXE.
+;
+#{"Pamp Ui"},(UID3_PAMPUI),VERSION_PAMPUI_MAJOR,VERSION_PAMPUI_MINOR,VERSION_PAMPUI_CORRECTION
+
+; S60 3rd Edition
+; 
+[0X101F7961], 0, 0, 0, {"Series60ProductID"}
+
+; The Beef
+;
+"EPOC32\release\PLATFORM\BUILD\pampui.exe"                  -"!:\sys\bin\pampui.exe"
+"EPOC32\data\z\private\10003a3f\import\apps\pampui_reg.rsc" -"!:\private\10003a3f\import\apps\pampui_reg.rsc"
+"EPOC32\data\z\resource\apps\pampui.rsc"                    -"!:\resource\apps\pampui.rsc"
+"EPOC32\data\z\resource\apps\pampui.mbm"                    -"!:\resource\apps\pampui.mbm"
+"EPOC32\data\z\resource\apps\pampui.mif"                    -"!:\resource\apps\pampui.mif"
+"EPOC32\data\z\resource\apps\pampui_loc.rsc"                -"!:\resource\apps\pampui_loc.rsc"

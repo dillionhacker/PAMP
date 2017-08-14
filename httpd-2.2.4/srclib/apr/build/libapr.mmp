@@ -1,0 +1,226 @@
+/* Copyright 2007 Nokia Corporation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/*
+ * This is a build file for Symbian.
+ */
+
+#include "../../../mmp.conf"
+
+MACRO           APR_DECLARE_EXPORT
+
+TARGET          libapr1.dll
+EXPORTLIBRARY   libapr.lib
+TARGETTYPE      DLL
+EPOCALLOWDLLDATA
+
+#if defined(WINS)
+deffile ..\build\symbian_bwins.def
+#else
+deffile ..\build\symbian_eabi.def
+#endif
+
+CAPABILITY      MWS_DLL_CAPABILITIES
+
+SYSTEMINCLUDE   \epoc32\include
+SYSTEMINCLUDE   \epoc32\include\stdapis
+SYSTEMINCLUDE   \epoc32\include\mws\httpd-2.2\srclib\apr\include
+SYSTEMINCLUDE   ..\include\arch
+SYSTEMINCLUDE   ..\include\arch\symbian
+SYSTEMINCLUDE   ..\include\arch\unix
+
+//
+// atomic
+//
+SOURCEPATH      ..\atomic\unix
+SOURCE          apr_atomic.c
+
+//
+// dso
+//
+SOURCEPATH      ..\dso\unix
+SOURCE          dso.c
+
+//
+// file_io
+//
+SOURCEPATH      ..\file_io\symbian
+SOURCE          filepath.cpp
+SOURCE          flock.c
+
+SOURCEPATH      ..\file_io\unix
+SOURCE          copy.c
+SOURCE          dir.c
+SOURCE          fileacc.c
+SOURCE          filedup.c
+SOURCE          filepath_util.c
+SOURCE          filestat.c
+SOURCE          fullrw.c
+SOURCE          mktemp.c
+SOURCE          open.c
+SOURCE          pipe.c
+SOURCE          readwrite.c
+SOURCE          seek.c
+SOURCE          tempdir.c
+
+//
+// locks
+//
+SOURCEPATH      ..\locks\unix
+//FIXME: If APR_PROC_MUTEX_IS_GLOBAL is true on Symbian, then global_mutex.c
+//FIXME: cannot be compiled. For the time being we assume it is really so.
+//SOURCE          global_mutex.c
+SOURCE          proc_mutex.c
+SOURCE          thread_cond.c
+SOURCE          thread_mutex.c
+SOURCE          thread_rwlock.c
+
+
+//
+// memory
+//
+SOURCEPATH      ..\memory\unix
+SOURCE          apr_pools.c
+
+//
+// misc
+//
+SOURCEPATH      ..\misc\symbian
+SOURCE          log.cpp
+SOURCE          rand.cpp
+
+SOURCEPATH      ..\misc\unix
+SOURCE          charset.c
+SOURCE          env.c
+SOURCE          errorcodes.c
+SOURCE          getopt.c
+SOURCE          otherchild.c
+SOURCE          start.c
+SOURCE          version.c
+
+//
+// mmap
+// 
+SOURCEPATH      ..\mmap\unix
+SOURCE          common.c
+SOURCE          mmap.c
+
+//
+// network_io
+//
+SOURCEPATH      ..\network_io\unix
+SOURCE          inet_ntop.c
+SOURCE          inet_pton.c
+SOURCE          sendrecv.c
+SOURCE          sockaddr.c
+SOURCE          sockaddr_symbian.cpp
+SOURCE          sockets.c
+SOURCE          sockets_symbian.cpp
+SOURCE          sockopt.c
+
+//
+// passwd
+//
+SOURCEPATH      ..\passwd
+SOURCE          apr_getpass.c
+
+//
+// random
+//
+SOURCEPATH      ..\random\unix
+SOURCE          apr_random.c
+SOURCE          sha2.c
+SOURCE          sha2_glue.c
+
+//
+// poll
+//
+SOURCEPATH      ..\poll\unix
+SOURCE          epoll.c
+SOURCE          kqueue.c
+SOURCE          poll.c
+SOURCE          port.c
+SOURCE          select.c
+
+//
+// shmem
+// 
+SOURCEPATH      ..\shmem\unix
+SOURCE          shm.c
+
+//
+// strings
+//
+SOURCEPATH      ..\strings
+SOURCE          apr_cpystrn.c
+SOURCE          apr_fnmatch.c
+SOURCE          apr_snprintf.c
+SOURCE          apr_strings.c
+SOURCE          apr_strnatcmp.c
+SOURCE          apr_strtok.c
+
+//
+// support
+//
+SOURCEPATH      ..\support\unix
+SOURCE          waitio.c
+
+//
+// tables
+// 
+SOURCEPATH      ..\tables
+SOURCE          apr_hash.c
+SOURCE          apr_tables.c
+
+//
+// time
+//
+SOURCEPATH      ..\time\unix
+SOURCE          time.c
+SOURCE          timestr.c
+
+//
+// threadproc
+// 
+SOURCEPATH      ..\threadproc\symbian
+SOURCE          signals.c
+
+SOURCEPATH      ..\threadproc\unix
+SOURCE          proc.c
+//apr_proc_detach() not supported.
+//SOURCE          procsup.c
+SOURCE          thread.c
+SOURCE          threadpriv.c
+
+//
+// user
+//
+SOURCEPATH      ..\user\unix
+SOURCE          groupinfo.c
+SOURCE          userinfo.c
+
+LIBRARY         libpthread.lib
+LIBRARY         libm.lib
+LIBRARY         libdl.lib
+LIBRARY         libc.lib
+
+LIBRARY         commdb.lib
+LIBRARY         esock.lib
+LIBRARY         euser.lib
+LIBRARY         flogger.lib
+LIBRARY         insock.lib
+LIBRARY         random.lib
+
+EXPORTUNFROZEN

@@ -1,0 +1,34 @@
+EXPORTS
+	??0RHttpd@Mws@@QAE@XZ @ 1 NONAME ; Mws::RHttpd::RHttpd(void)
+	??1CHttpd@Mws@@UAE@XZ @ 2 NONAME ; Mws::CHttpd::~CHttpd(void)
+	?AttachL@CHttpd@Mws@@QAEXPAVMHttpdObserver@2@@Z @ 3 NONAME ; void Mws::CHttpd::AttachL(class Mws::MHttpdObserver *)
+	?Close@CHttpd@Mws@@QAEXXZ @ 4 NONAME ; void Mws::CHttpd::Close(void)
+	?Close@RHttpd@Mws@@QAEXXZ @ 5 NONAME ; void Mws::RHttpd::Close(void)
+	?Connect@RHttpd@Mws@@QAEHXZ @ 6 NONAME ; int Mws::RHttpd::Connect(void)
+	?ConnectL@CHttpd@Mws@@QAEXXZ @ 7 NONAME ; void Mws::CHttpd::ConnectL(void)
+	?Connected@CHttpd@Mws@@QBEHXZ @ 8 NONAME ; int Mws::CHttpd::Connected(void) const
+	?Detach@CHttpd@Mws@@QAEXPAVMHttpdObserver@2@@Z @ 9 NONAME ; void Mws::CHttpd::Detach(class Mws::MHttpdObserver *)
+	?GetState@RHttpd@Mws@@QBEHAAW4THttpdState@2@@Z @ 10 NONAME ; int Mws::RHttpd::GetState(enum Mws::THttpdState &) const
+	?GetState@RHttpd@Mws@@QBEXPAV?$TPckg@W4THttpdState@Mws@@@@AAVTRequestStatus@@@Z @ 11 NONAME ; void Mws::RHttpd::GetState(class TPckg<enum Mws::THttpdState> *, class TRequestStatus &) const
+	?GetStateCancel@RHttpd@Mws@@QBEHXZ @ 12 NONAME ; int Mws::RHttpd::GetStateCancel(void) const
+	?NewL@CHttpd@Mws@@SAPAV12@H@Z @ 13 NONAME ; class Mws::CHttpd * Mws::CHttpd::NewL(int)
+	?NewLC@CHttpd@Mws@@SAPAV12@H@Z @ 14 NONAME ; class Mws::CHttpd * Mws::CHttpd::NewLC(int)
+	?ReConnectL@CHttpd@Mws@@QAEXXZ @ 15 NONAME ; void Mws::CHttpd::ReConnectL(void)
+	?RestartL@CHttpd@Mws@@QBEXH@Z @ 16 NONAME ; void Mws::CHttpd::RestartL(int) const
+	?RestartServer@RHttpd@Mws@@QBEHH@Z @ 17 NONAME ; int Mws::RHttpd::RestartServer(int) const
+	?StartL@CHttpd@Mws@@QBEXABVTHttpdSettings1@2@@Z @ 18 NONAME ; void Mws::CHttpd::StartL(class Mws::THttpdSettings1 const &) const
+	?StartServer@RHttpd@Mws@@QBEHABVTHttpdSettings1@2@@Z @ 19 NONAME ; int Mws::RHttpd::StartServer(class Mws::THttpdSettings1 const &) const
+	?StateL@CHttpd@Mws@@QBE?AW4THttpdState@2@XZ @ 20 NONAME ; enum Mws::THttpdState Mws::CHttpd::StateL(void) const
+	?StopL@CHttpd@Mws@@QBEXH@Z @ 21 NONAME ; void Mws::CHttpd::StopL(int) const
+	?StopServer@RHttpd@Mws@@QBEHH@Z @ 22 NONAME ; int Mws::RHttpd::StopServer(int) const
+	?Version@CHttpd@Mws@@QBE?AVTVersion@@XZ @ 23 NONAME ; class TVersion Mws::CHttpd::Version(void) const
+	?Version@RHttpd@Mws@@QBE?AVTVersion@@XZ @ 24 NONAME ; class TVersion Mws::RHttpd::Version(void) const
+	?CurrentSettingsL@CHttpd@Mws@@QBE?AVTHttpdSettings1@2@XZ @ 25 NONAME ; class Mws::THttpdSettings1 Mws::CHttpd::CurrentSettingsL(void) const
+	?GetCurrentSettings@RHttpd@Mws@@QBEHAAVTHttpdSettings1@2@@Z @ 26 NONAME ; int Mws::RHttpd::GetCurrentSettings(class Mws::THttpdSettings1 &) const
+	?GetSettings@RHttpd@Mws@@QBEHAAVTHttpdSettings1@2@@Z @ 27 NONAME ; int Mws::RHttpd::GetSettings(class Mws::THttpdSettings1 &) const
+	?SetSettings@RHttpd@Mws@@QBEHABVTHttpdSettings1@2@@Z @ 28 NONAME ; int Mws::RHttpd::SetSettings(class Mws::THttpdSettings1 const &) const
+	?SetSettingsL@CHttpd@Mws@@QBEXABVTHttpdSettings1@2@@Z @ 29 NONAME ; void Mws::CHttpd::SetSettingsL(class Mws::THttpdSettings1 const &) const
+	?SettingsL@CHttpd@Mws@@QBE?AVTHttpdSettings1@2@XZ @ 30 NONAME ; class Mws::THttpdSettings1 Mws::CHttpd::SettingsL(void) const
+	?StartL@CHttpd@Mws@@QBEXABVTDesC16@@ABVTHttpdSettings1@2@@Z @ 31 NONAME ; void Mws::CHttpd::StartL(class TDesC16 const &, class Mws::THttpdSettings1 const &) const
+	?StartServer@RHttpd@Mws@@QBEHABVTDesC16@@ABVTHttpdSettings1@2@@Z @ 32 NONAME ; int Mws::RHttpd::StartServer(class TDesC16 const &, class Mws::THttpdSettings1 const &) const
+

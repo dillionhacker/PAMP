@@ -1,0 +1,59 @@
+/* Copyright 2007 Nokia Corporation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/*
+ * This is a build file for Symbian.
+ */
+
+PRJ_MMPFILES
+.\libapr.mmp
+
+PRJ_EXPORTS
+..\include\apr.hs              mws\httpd-2.2\srclib\apr\include\apr.h
+..\include\apr_allocator.h     mws\httpd-2.2\srclib\apr\include\apr_allocator.h
+..\include\apr_atomic.h        mws\httpd-2.2\srclib\apr\include\apr_atomic.h
+..\include\apr_dso.h           mws\httpd-2.2\srclib\apr\include\apr_dso.h
+..\include\apr_env.h           mws\httpd-2.2\srclib\apr\include\apr_env.h
+..\include\apr_errno.h         mws\httpd-2.2\srclib\apr\include\apr_errno.h
+..\include\apr_file_info.h     mws\httpd-2.2\srclib\apr\include\apr_file_info.h
+..\include\apr_file_io.h       mws\httpd-2.2\srclib\apr\include\apr_file_io.h
+..\include\apr_fnmatch.h       mws\httpd-2.2\srclib\apr\include\apr_fnmatch.h
+..\include\apr_general.h       mws\httpd-2.2\srclib\apr\include\apr_general.h
+..\include\apr_getopt.h        mws\httpd-2.2\srclib\apr\include\apr_getopt.h
+..\include\apr_global_mutex.h  mws\httpd-2.2\srclib\apr\include\apr_global_mutex.h
+..\include\apr_hash.h          mws\httpd-2.2\srclib\apr\include\apr_hash.h
+..\include\apr_inherit.h       mws\httpd-2.2\srclib\apr\include\apr_inherit.h
+..\include\apr_lib.h           mws\httpd-2.2\srclib\apr\include\apr_lib.h
+..\include\apr_mmap.h          mws\httpd-2.2\srclib\apr\include\apr_mmap.h
+..\include\apr_network_io.h    mws\httpd-2.2\srclib\apr\include\apr_network_io.h
+..\include\apr_poll.h          mws\httpd-2.2\srclib\apr\include\apr_poll.h
+..\include\apr_pools.h         mws\httpd-2.2\srclib\apr\include\apr_pools.h
+..\include\apr_portable.h      mws\httpd-2.2\srclib\apr\include\apr_portable.h
+..\include\apr_proc_mutex.h    mws\httpd-2.2\srclib\apr\include\apr_proc_mutex.h
+..\include\apr_random.h        mws\httpd-2.2\srclib\apr\include\apr_random.h
+..\include\apr_ring.h          mws\httpd-2.2\srclib\apr\include\apr_ring.h
+..\include\apr_shm.h           mws\httpd-2.2\srclib\apr\include\apr_shm.h
+..\include\apr_signal.h        mws\httpd-2.2\srclib\apr\include\apr_signal.h
+..\include\apr_strings.h       mws\httpd-2.2\srclib\apr\include\apr_strings.h
+..\include\apr_support.h       mws\httpd-2.2\srclib\apr\include\apr_support.h
+..\include\apr_tables.h        mws\httpd-2.2\srclib\apr\include\apr_tables.h
+..\include\apr_thread_cond.h   mws\httpd-2.2\srclib\apr\include\apr_thread_cond.h
+..\include\apr_thread_mutex.h  mws\httpd-2.2\srclib\apr\include\apr_thread_mutex.h
+..\include\apr_thread_proc.h   mws\httpd-2.2\srclib\apr\include\apr_thread_proc.h
+..\include\apr_thread_rwlock.h mws\httpd-2.2\srclib\apr\include\apr_thread_rwlock.h
+..\include\apr_time.h          mws\httpd-2.2\srclib\apr\include\apr_time.h
+..\include\apr_user.h          mws\httpd-2.2\srclib\apr\include\apr_user.h
+..\include\apr_version.h       mws\httpd-2.2\srclib\apr\include\apr_version.h
+..\include\apr_want.h          mws\httpd-2.2\srclib\apr\include\apr_want.h

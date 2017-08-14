@@ -1,0 +1,150 @@
+/* Copyright 2007 Nokia Corporation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/*
+ * This is a build file for Symbian.
+ */
+
+#include "../../../mmp.conf"
+
+MACRO           APU_DECLARE_EXPORT
+
+TARGET          libaprutil1.dll
+EXPORTLIBRARY   libaprutil.lib
+TARGETTYPE      DLL
+EPOCALLOWDLLDATA
+
+#if defined(WINS)
+deffile ..\build\symbian_bwins.def
+#else
+deffile ..\build\symbian_eabi.def
+#endif
+
+CAPABILITY      MWS_DLL_CAPABILITIES
+
+SYSTEMINCLUDE   \epoc32\include
+SYSTEMINCLUDE   \epoc32\include\stdapis
+SYSTEMINCLUDE   \epoc32\include\mws\httpd-2.2\srclib\apr\include
+SYSTEMINCLUDE   \epoc32\include\mws\httpd-2.2\srclib\apr-util\include
+USERINCLUDE     \epoc32\include\mws\httpd-2.2\srclib\apr-util\include\private
+USERINCLUDE     ..\include\private
+SYSTEMINCLUDE   \epoc32\include\mws\httpd-2.2\srclib\apr-util\xml\expat
+SYSTEMINCLUDE   ..\xml\expat
+USERINCLUDE     \epoc32\include\mws\httpd-2.2\srclib\apr-util\xml\expat\lib
+USERINCLUDE     ..\xml\expat\lib
+
+//
+// buckets
+//
+SOURCEPATH      ..\buckets
+SOURCE          apr_brigade.c
+SOURCE          apr_buckets.c
+SOURCE          apr_buckets_alloc.c
+SOURCE          apr_buckets_eos.c
+SOURCE          apr_buckets_file.c
+SOURCE          apr_buckets_flush.c
+SOURCE          apr_buckets_heap.c
+SOURCE          apr_buckets_mmap.c
+SOURCE          apr_buckets_pipe.c
+SOURCE          apr_buckets_pool.c
+SOURCE          apr_buckets_refcount.c
+SOURCE          apr_buckets_simple.c
+SOURCE          apr_buckets_socket.c
+
+//
+// crypto
+//
+SOURCEPATH      ..\crypto
+SOURCE          apr_md4.c
+SOURCE          apr_md5.c
+SOURCE          apr_sha1.c
+SOURCE          getuuid.c
+SOURCE          uuid.c
+
+//
+// dbd
+//
+
+// No database support yet.
+
+//
+// dbm
+//
+SOURCEPATH      ..\dbm
+SOURCE          apr_dbm.c
+SOURCE          apr_dbm_sdbm.c
+
+SOURCEPATH      ..\dbm\sdbm
+SOURCE          sdbm.c
+SOURCE          sdbm_hash.c
+SOURCE          sdbm_lock.c
+SOURCE          sdbm_pair.c
+
+//
+// encoding
+//
+SOURCEPATH      ..\encoding
+SOURCE          apr_base64.c
+
+//
+// hooks
+//
+SOURCEPATH      ..\hooks
+SOURCE          apr_hooks.c
+
+//
+// ldap
+//
+
+//
+// misc
+//
+SOURCEPATH      ..\misc
+SOURCE          apr_date.c
+SOURCE          apr_queue.c
+SOURCE          apr_reslist.c
+SOURCE          apr_rmm.c
+SOURCE          apu_version.c
+
+//
+// strmatch
+//
+SOURCEPATH      ..\strmatch
+SOURCE          apr_strmatch.c
+
+//
+// uri
+//
+SOURCEPATH      ..\uri
+SOURCE          apr_uri.c
+
+//
+// xlate
+//
+SOURCEPATH      ..\xlate
+SOURCE          xlate.c
+
+//
+// xml
+//
+SOURCEPATH      ..\xml
+SOURCE          apr_xml.c
+
+STATICLIBRARY   STATICLIBRARY_NAME(libexpat.lib)
+LIBRARY         libapr.lib
+LIBRARY         libpthread.lib
+LIBRARY         libcrypt.lib
+LIBRARY         libc.lib
+LIBRARY         euser.lib

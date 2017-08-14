@@ -1,0 +1,47 @@
+/*
+   +----------------------------------------------------------------------+
+   | PHP Version 5                                                        |
+   +----------------------------------------------------------------------+
+   | Copyright (c) 2007 Nokia Corporation                                 |
+   +----------------------------------------------------------------------+
+   | This source file is subject to version 3.01 of the PHP license,      |
+   | that is bundled with this package in the file LICENSE, and is        |
+   | available through the world-wide-web at the following url:           |
+   | http://www.php.net/license/3_01.txt                                  |
+   | If you did not receive a copy of the PHP license and are unable to   |
+   | obtain it through the world-wide-web, please send a note to          |
+   | license@php.net so we can mail you a copy immediately.               |
+   +----------------------------------------------------------------------+
+ */
+
+#include "mmp.conf"
+
+
+TARGET          STATICLIBRARY_NAME(php_pcre.lib)
+TARGETTYPE      LIB
+
+USERINCLUDE     ..\..\..\ext\pcre
+
+SOURCEPATH      ..\..\..\ext\pcre\pcrelib
+SOURCE          pcre_chartables.c
+SOURCE          pcre_compile.c
+SOURCE          pcre_config.c
+SOURCE          pcre_exec.c
+SOURCE          pcre_fullinfo.c
+SOURCE          pcre_get.c
+SOURCE          pcre_globals.c
+SOURCE          pcre_info.c
+SOURCE          pcre_maketables.c
+SOURCE          pcre_newline.c
+SOURCE          pcre_ord2utf8.c
+SOURCE          pcre_refcount.c
+SOURCE          pcre_study.c
+SOURCE          pcre_tables.c
+SOURCE          pcre_try_flipped.c
+SOURCE          pcre_ucp_searchfuncs.c
+SOURCE          pcre_valid_utf8.c
+SOURCE          pcre_version.c
+SOURCE          pcre_xclass.c
+
+SOURCEPATH      ..\..\..\ext\pcre
+SOURCE          php_pcre.c

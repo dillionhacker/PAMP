@@ -1,0 +1,45 @@
+; Copyright 2006 Nokia Corporation
+;
+; Licensed under the Apache License, Version 2.0 (the "License");
+; you may not use this file except in compliance with the License.
+; You may obtain a copy of the License at
+;
+;     http://www.apache.org/licenses/LICENSE-2.0
+;
+; Unless required by applicable law or agreed to in writing, software
+; distributed under the License is distributed on an "AS IS" BASIS,
+; WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+; See the License for the specific language governing permissions and
+; limitations under the License.
+
+#include "../config/symbian_mod_python_config.h"
+
+;
+; Languages
+;
+&EN
+
+;
+; Localised vendor name
+;
+%{"Nokia"}
+
+;
+; Global vendor name
+;
+:"Nokia"
+
+;
+; Package UID is the UID of the mod_python DLL.
+;
+#{"mod_python-3_3_1"},(UID_PKG_MOD_PYTHON), VERSION_MOD_PYTHON_MAJOR, VERSION_MOD_PYTHON_MINOR, VERSION_MOD_PYTHON_CORRECTION
+
+;
+; Supported platform.
+; 
+[PlatID_S60_DEFAULT], 0, 0, 0, {"Series60ProductID"}
+
+;
+; The beef.
+;
+#include "mod_python.files"

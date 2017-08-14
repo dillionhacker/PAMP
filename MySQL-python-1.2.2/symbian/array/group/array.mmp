@@ -1,0 +1,58 @@
+/* Copyright 2008 Nokia Corporation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+TARGET          array.pyd
+TARGETTYPE      DLL
+EPOCALLOWDLLDATA
+
+CAPABILITY      LocalServices\
+                NetworkServices\
+                ReadUserData\
+                WriteUserData\
+                UserEnvironment\
+                \
+                Location\
+                PowerMgmt\
+                ProtServ\
+                ReadDeviceData\
+                SurroundingsDD\
+                SwEvent\
+                TrustedUI\
+                WriteDeviceData\
+
+NOSTRICTDEF
+
+MACRO           HAVE_HUGE_VAL
+
+OPTION ARMCC    --diag_suppress 68,188,1110,1293
+OPTION CW       -w nounusedarg
+
+#if defined(WINS)
+DEFFILE         .\array_bwins.def
+#else
+DEFFILE         .\array_eabi.def
+#endif
+
+SYSTEMINCLUDE   \epoc32\include
+SYSTEMINCLUDE   \epoc32\include\libc
+SYSTEMINCLUDE   \epoc32\include\python
+
+SOURCEPATH      ..\src\Python-2.3.7\Modules
+SOURCE          arraymodule.c
+
+LIBRARY         python222.lib
+LIBRARY         estlib.lib
+LIBRARY         efsrv.lib
+LIBRARY         euser.lib

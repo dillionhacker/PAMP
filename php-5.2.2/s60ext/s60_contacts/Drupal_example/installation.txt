@@ -1,0 +1,13 @@
+S60 Contacts page
+
+How to install:
+
+1) Create a page (Create content >> Page)
+2) Change page's input format to 'PHP code'
+3) Copy-paste code from drupal_s60_contact_page.php to body-field
+4) Write a suitable title for your page to title-field
+5) Click submit-button and your page should be ready
+
+5a) Make sure that you remeber your pages node id is (found in address-bar and is something like node/4 )
+5b) Make a link for your newly created page 
+   (i.e. edit primary links >> Navigation > add item and there paste node id to path-field and fill out other fields)

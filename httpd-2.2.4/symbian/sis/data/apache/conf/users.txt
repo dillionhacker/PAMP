@@ -1,0 +1,13 @@
+#
+# The format is 
+#
+#    username:password
+#
+# Just remove the # from the line below and people will be able to log in 
+# using "hello" as username and "world" as password (both without quotes).
+# Or add usernames and passwords to your liking.
+#
+# NOTE: Create the password using the command 'htpasswd', which is included
+#       in all regular Apache distributions.
+
+#hello:$apr1$sK2.....$F2AiKmYW8dgHs07GeyCCX0

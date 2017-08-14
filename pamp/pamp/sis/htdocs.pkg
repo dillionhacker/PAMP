@@ -1,0 +1,60 @@
+; Copyright 2007 Nokia Corporation
+;
+; Licensed under the Apache License, Version 2.0 (the "License");
+; you may not use this file except in compliance with the License.
+; You may obtain a copy of the License at
+;
+;     http://www.apache.org/licenses/LICENSE-2.0
+;
+; Unless required by applicable law or agreed to in writing, software
+; distributed under the License is distributed on an "AS IS" BASIS,
+; WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+; See the License for the specific language governing permissions and
+; limitations under the License.
+
+
+; Languages
+&EN
+
+; Localized vendor name
+%{"Nokia Research Center"}
+
+; Non-Localized vendor name
+:"Nokia Research Center"
+
+; Package UID
+;
+; If you think of changing the UID, check httpd-2.2.4/symbian/config/symbian_httpd_config.h.
+;
+#{"Pamp httpd content"}, (0xe57b3de3), 1 ,0 ,0
+
+; S60v3
+[0x101f7961] , 0, 0, 0, {"Series60ProductID"}
+
+
+;
+; PHP docs
+;
+IF PACKAGE(0x20007E60)
+;
+; If installing on top of MWS, htdocs can reside on either C:, E: or F:.
+;
+IF EXISTS("c:\data\web server\conf\httpd.conf")
+"data\apache\htdocs\php\index.html"  -"c:\data\web server\htdocs\php\index.html"
+"data\apache\htdocs\php\phpinfo.php" -"c:\data\web server\htdocs\php\phpinfo.php"
+ENDIF
+
+IF EXISTS("e:\data\web server\conf\httpd.conf")
+"data\apache\htdocs\php\index.html"  -"e:\data\web server\htdocs\php\index.html"
+"data\apache\htdocs\php\phpinfo.php" -"e:\data\web server\htdocs\php\phpinfo.php"
+ENDIF
+
+IF EXISTS("f:\data\web server\conf\httpd.conf")
+"data\apache\htdocs\php\index.html"  -"f:\data\web server\htdocs\php\index.html"
+"data\apache\htdocs\php\phpinfo.php" -"f:\data\web server\htdocs\php\phpinfo.php"
+ENDIF
+
+ELSE
+"data\apache\htdocs\php\index.html"  -"e:\data\apache\htdocs\index.html"
+"data\apache\htdocs\php\phpinfo.php" -"e:\data\apache\htdocs\phpinfo.php"
+ENDIF

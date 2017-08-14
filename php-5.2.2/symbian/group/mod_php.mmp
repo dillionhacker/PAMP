@@ -1,0 +1,85 @@
+/*
+   +----------------------------------------------------------------------+
+   | PHP Version 5                                                        |
+   +----------------------------------------------------------------------+
+   | Copyright (c) 2007 Nokia Corporation                                 |
+   +----------------------------------------------------------------------+
+   | This source file is subject to version 3.01 of the PHP license,      |
+   | that is bundled with this package in the file LICENSE, and is        |
+   | available through the world-wide-web at the following url:           |
+   | http://www.php.net/license/3_01.txt                                  |
+   | If you did not receive a copy of the PHP license and are unable to   |
+   | obtain it through the world-wide-web, please send a note to          |
+   | license@php.net so we can mail you a copy immediately.               |
+   +----------------------------------------------------------------------+
+ */
+
+#include "mmp.conf"
+
+
+TARGET          httpd22-mod_php.so
+TARGETTYPE      DLL
+
+#include "../components_symbian.h"
+
+CAPABILITY      PHP_DLL_CAPABILITIES
+
+EPOCALLOWDLLDATA
+
+MACRO           HAVE_SYMBIAN_DYNAMIC_MODULES
+
+SYSTEMINCLUDE   \epoc32\include 
+SYSTEMINCLUDE   \epoc32\include\stdapis
+
+SYSTEMINCLUDE   ..\..
+SYSTEMINCLUDE   ..\..\Zend
+SYSTEMINCLUDE   ..\..\Main
+SYSTEMINCLUDE   ..\..\ext\standard
+
+SYSTEMINCLUDE   ..\..\ext\date\lib
+
+SYSTEMINCLUDE   \epoc32\include\mws\httpd-2.2\include
+SYSTEMINCLUDE   \epoc32\include\mws\httpd-2.2\srclib\apr\include
+SYSTEMINCLUDE   \epoc32\include\mws\httpd-2.2\srclib\apr-util\include
+SYSTEMINCLUDE   \epoc32\include\mws\httpd-2.2\os\symbian
+
+USERINCLUDE     ..
+USERINCLUDE     ..\..\tsrm
+USERINCLUDE     ..\..\regex
+USERINCLUDE     ..\..\ext\date\
+
+SOURCEPATH      ..\..\sapi\apache2handler
+SOURCE          apache_config.c
+SOURCE          mod_php5.c
+SOURCE          php_functions.c
+SOURCE          sapi_apache2.c
+
+#include "modules.mmp"
+
+STATICLIBRARY   STATICLIBRARY_NAME(php_tsrm.lib)
+STATICLIBRARY   STATICLIBRARY_NAME(php_main.lib)
+STATICLIBRARY   STATICLIBRARY_NAME(php_zend.lib)
+
+LIBRARY         euser.lib
+LIBRARY         libhttpd.lib
+LIBRARY         libaprutil.lib
+LIBRARY         libapr.lib
+LIBRARY         libc.lib
+LIBRARY         libpthread.lib
+LIBRARY         libm.lib
+LIBRARY         libdl.lib
+LIBRARY         libz.lib
+LIBRARY         libcrypt.lib
+LIBRARY         efsrv.lib
+LIBRARY         sendas2.lib
+
+
+NOSTRICTDEF
+
+#if defined(WINSCW)
+DEFFILE         .\mod_php_winscw.def
+#elif defined(GCCE)
+DEFFILE         .\mod_php_gcce.def
+#else
+DEFFILE         .\mod_php_armv5.def
+#endif

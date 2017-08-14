@@ -1,0 +1,32 @@
+<!-- This file should look as follows:                                    -->
+<!--                                                                      -->
+<!-- <httpds>                                                             -->
+<!--   <httpd>                                                            -->
+<!--     <stacksize>dec_or_hex_value</stacksize>                          -->
+<!--     <minheapsize>dec_or_hex_value</minheapsize>                      -->
+<!--     <maxheapsize>dec_or_hex_value</maxheapsize>                      -->
+<!--     <override/>                                                      -->
+<!--   </httpd>                                                           -->
+<!-- </httpds>                                                            -->
+<!--                                                                      -->
+<!-- stacksize:   The stack size of the main httpd thread.                -->
+<!-- minheapsize: The minimum size of the heap.                           -->
+<!-- maxheapsize: The maximum size of the heap.                           -->
+<!-- override:    Wheather the values in this file should UNCONDITIONALLY -->
+<!--              override the settings specified by whichever client     -->
+<!--              application starts the server.                          -->
+<!--                                                                      -->
+<!-- Any of the elements can be omitted.                                  -->
+<!--                                                                      -->
+<!-- If the override element is NOT present, the values here are used     -->
+<!-- if and only if they are larger than the ones specified by the        -->
+<!-- starting program.                                                    -->
+
+<httpds>
+  <httpd>
+    <stacksize>0x10000</stacksize>
+    <minheapsize>0x20000</minheapsize>
+    <maxheapsize>0x1E00000</maxheapsize>
+<!--    <override/> -->
+  </httpd>
+</httpds>

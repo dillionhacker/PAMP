@@ -1,0 +1,52 @@
+/* Copyright 2007 Nokia Corporation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/*
+ * This is a build file for Symbian.
+ */
+
+#include "../mmp.conf"
+
+
+#if defined(HAVE_MOD_SETENVIF_BUILTIN)
+TARGET          STATICLIBRARY_NAME(mod_setenvif.lib)
+TARGETTYPE      LIB
+MACRO           NO_SYMBIAN_EXPORT_BY_NAME
+#else
+TARGET          httpd22-mod_setenvif.so
+TARGETTYPE      DLL
+EPOCALLOWDLLDATA
+
+#if defined(WINS)
+deffile ..\bwins.def
+#else
+deffile ..\eabi.def
+#endif
+
+CAPABILITY      MWS_DLL_CAPABILITIES
+#endif
+
+
+SOURCEPATH      .
+SOURCE          mod_setenvif.c
+
+
+#if !defined(HAVE_MOD_SETENVIF_BUILTIN)
+LIBRARY         libhttpd.lib
+LIBRARY         libaprutil.lib
+LIBRARY         libapr.lib
+LIBRARY         libc.lib
+LIBRARY         euser.lib
+#endif

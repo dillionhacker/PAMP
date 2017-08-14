@@ -1,0 +1,2 @@
+EXPORTS
+	ap_lookup_symbol @ 1 NONAME

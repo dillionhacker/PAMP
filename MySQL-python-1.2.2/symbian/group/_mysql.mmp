@@ -1,0 +1,64 @@
+/*
+ * Copyright (C) 2008 Nokia Corporation
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */      
+
+TARGET          _mysql.pyd
+TARGETTYPE      DLL
+EPOCALLOWDLLDATA
+
+NOSTRICTDEF
+
+CAPABILITY      LocalServices\
+                NetworkServices\
+                ReadUserData\
+                WriteUserData\
+                UserEnvironment\
+                \
+                Location\
+                PowerMgmt\
+                ProtServ\
+                ReadDeviceData\
+                SurroundingsDD\
+                SwEvent\
+                TrustedUI\
+                WriteDeviceData\
+
+MACRO           HAVE_HUGE_VAL
+
+OPTION ARMCC    --diag_suppress 68,188,1110,1293
+
+#if defined(WINS)
+DEFFILE         .\_mysql_bwins.def
+#else
+DEFFILE         .\_mysql_eabi.def
+#endif
+
+SYSTEMINCLUDE   \epoc32\include
+SYSTEMINCLUDE   \epoc32\include\stdapis
+SYSTEMINCLUDE   \epoc32\include\mysql-5.0
+SYSTEMINCLUDE   \epoc32\include\python
+
+SOURCEPATH      ..\..
+SOURCE          _mysql.c
+
+STATICLIBRARY   libmysql.lib
+LIBRARY         python222.lib
+LIBRARY         libc.lib
+LIBRARY         libm.lib
+LIBRARY         libpthread.lib
+LIBRARY         libz.lib
+LIBRARY         efsrv.lib
+LIBRARY         euser.lib

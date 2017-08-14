@@ -1,0 +1,69 @@
+/*
+   +----------------------------------------------------------------------+
+   | PHP Version 5                                                        |
+   +----------------------------------------------------------------------+
+   | Copyright (c) 2007 Nokia Corporation                                 |
+   +----------------------------------------------------------------------+
+   | This source file is subject to version 3.01 of the PHP license,      |
+   | that is bundled with this package in the file LICENSE, and is        |
+   | available through the world-wide-web at the following url:           |
+   | http://www.php.net/license/3_01.txt                                  |
+   | If you did not receive a copy of the PHP license and are unable to   |
+   | obtain it through the world-wide-web, please send a note to          |
+   | license@php.net so we can mail you a copy immediately.               |
+   +----------------------------------------------------------------------+
+ */
+
+#include "mmp.conf"
+
+
+TARGET          STATICLIBRARY_NAME(php_gd.lib)
+TARGETTYPE      LIB
+
+SYSTEMINCLUDE   \epoc32\include\libpng-1.2
+SYSTEMINCLUDE   \epoc32\include\jpeg-6
+
+SYSTEMINCLUDE   ..\..\..\ext\gd\libgd
+USERINCLUDE     ..\..\..\ext\gd\
+
+//MACRO           PHP_SYMBIAN
+//MACRO           ZEND_SYMBIAN
+//MACRO           TSRM_SYMBIAN
+MACRO           HAVE_CONFIG_H
+
+SOURCEPATH      ..\..\..\ext\gd
+SOURCE          gd_php.c
+//SOURCE          gdcache.c
+SOURCE          gdttf.c
+
+SOURCEPATH      ..\..\..\ext\gd\libgd
+SOURCE          gd.c
+SOURCE          gdcache.c
+SOURCE          gdfontg.c
+SOURCE          gdfontl.c
+SOURCE          gdfontmb.c
+SOURCE          gdfonts.c
+SOURCE          gdfontt.c
+SOURCE          gdft.c
+SOURCE          gdhelpers.c
+SOURCE          gdkanji.c
+SOURCE          gdtables.c
+SOURCE          gdxpm.c
+SOURCE          gd_gd.c
+SOURCE          gd_gd2.c
+SOURCE          gd_gif_in.c
+SOURCE          gd_gif_out.c
+SOURCE          gd_io.c
+SOURCE          gd_io_dp.c
+SOURCE          gd_io_file.c
+SOURCE          gd_io_ss.c
+SOURCE          gd_jpeg.c
+SOURCE          gd_png.c
+SOURCE          gd_security.c
+SOURCE          gd_ss.c
+SOURCE          gd_topal.c
+SOURCE          gd_wbmp.c
+SOURCE          mathmake.c
+SOURCE          wbmp.c
+SOURCE          xbm.c
+

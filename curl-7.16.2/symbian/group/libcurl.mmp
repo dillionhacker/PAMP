@@ -1,0 +1,100 @@
+/***************************************************************************
+ * Copyright (C) 2007, Nokia Corporation
+ *
+ * This software is licensed as described in the file COPYING, which
+ * you should have received as part of this distribution. The terms
+ * are also available at http://curl.haxx.se/docs/copyright.html.
+ *
+ * You may opt to use, copy, modify, merge, publish, distribute and/or sell
+ * copies of the Software, and permit persons to whom the Software is
+ * furnished to do so, under the terms of the COPYING file.
+ *
+ * This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY
+ * KIND, either express or implied.
+ *
+ ***************************************************************************/
+
+#include "../config/mmp.conf"
+
+
+TARGET          STATICLIBRARY_NAME(libcurl-7_16.lib)
+TARGETTYPE      LIB
+
+//
+// ARMCC
+//
+// 1293 : assignment in condition
+//
+OPTION          ARMCC --diag_suppress 1293
+
+SYSTEMINCLUDE 	\epoc32\include 
+SYSTEMINCLUDE 	\epoc32\include\stdapis
+SYSTEMINCLUDE 	..\..\include
+SYSTEMINCLUDE   ..\..\lib
+
+USERINCLUDE     \epoc32\include\curl-7.16\curl
+
+SOURCEPATH      ..\..\lib
+SOURCE          amigaos.c
+SOURCE          base64.c
+SOURCE          connect.c
+SOURCE          content_encoding.c
+SOURCE          cookie.c
+SOURCE          dict.c
+SOURCE          easy.c
+SOURCE          escape.c
+SOURCE          file.c
+SOURCE          formdata.c
+SOURCE          ftp.c
+SOURCE          getenv.c
+SOURCE          getinfo.c
+SOURCE          gtls.c
+SOURCE          hash.c
+SOURCE          hostares.c
+SOURCE          hostasyn.c
+SOURCE          hostip.c
+SOURCE          hostip4.c
+SOURCE          hostip6.c
+SOURCE          hostsyn.c
+SOURCE          hostthre.c
+SOURCE          http.c
+SOURCE          http_chunks.c
+SOURCE          http_digest.c
+SOURCE          http_negotiate.c
+SOURCE          http_ntlm.c
+SOURCE          if2ip.c
+SOURCE          inet_ntop.c
+SOURCE          inet_pton.c
+SOURCE          krb4.c
+SOURCE          ldap.c
+SOURCE          llist.c
+SOURCE          md5.c
+SOURCE          memdebug.c
+SOURCE          mprintf.c
+SOURCE          multi.c
+SOURCE          netrc.c
+SOURCE          nss.c
+SOURCE          nwlib.c
+SOURCE          parsedate.c
+SOURCE          progress.c
+SOURCE          security.c
+SOURCE          select.c
+SOURCE          sendf.c
+SOURCE          share.c
+SOURCE          socks.c
+SOURCE          speedcheck.c
+SOURCE          splay.c
+SOURCE          ssh.c
+SOURCE          sslgen.c
+SOURCE          ssluse.c
+SOURCE          strdup.c
+SOURCE          strequal.c
+SOURCE          strerror.c
+SOURCE          strtok.c
+SOURCE          strtoofft.c
+SOURCE          telnet.c
+SOURCE          tftp.c
+SOURCE          timeval.c
+SOURCE          transfer.c
+SOURCE          url.c
+SOURCE          version.c

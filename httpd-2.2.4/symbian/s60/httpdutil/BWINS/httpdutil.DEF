@@ -1,0 +1,27 @@
+EXPORTS
+	??0CArguments1@Mws@@IAE@XZ @ 1 NONAME ; Mws::CArguments1::CArguments1(void)
+	??0CArgumentsQueryDialog@Mws@@IAE@AAVTDes16@@ABW4TTone@CAknQueryDialog@@@Z @ 2 NONAME ; Mws::CArgumentsQueryDialog::CArgumentsQueryDialog(class TDes16 &, enum CAknQueryDialog::TTone const &)
+	??1CArguments1@Mws@@UAE@XZ @ 3 NONAME ; Mws::CArguments1::~CArguments1(void)
+	??1CArgumentsQueryDialog@Mws@@UAE@XZ @ 4 NONAME ; Mws::CArgumentsQueryDialog::~CArgumentsQueryDialog(void)
+	??1CHttpdSettingsView@Mws@@UAE@XZ @ 5 NONAME ; Mws::CHttpdSettingsView::~CHttpdSettingsView(void)
+	?ConstructL@CArguments1@Mws@@IAEXXZ @ 6 NONAME ; void Mws::CArguments1::ConstructL(void)
+	?ConstructL@CArgumentsQueryDialog@Mws@@IAEXABVTDesC16@@W4TButtons@12@@Z @ 7 NONAME ; void Mws::CArgumentsQueryDialog::ConstructL(class TDesC16 const &, enum Mws::CArgumentsQueryDialog::TButtons)
+	?CopyL@CArguments1@Mws@@QAEXABV12@@Z @ 8 NONAME ; void Mws::CArguments1::CopyL(class Mws::CArguments1 const &)
+	?ExternalizeL@CArguments1@Mws@@QBEXAAVRWriteStream@@@Z @ 9 NONAME ; void Mws::CArguments1::ExternalizeL(class RWriteStream &) const
+	?ExternalizeL@CArguments1@Mws@@QBEXABVTDesC16@@@Z @ 10 NONAME ; void Mws::CArguments1::ExternalizeL(class TDesC16 const &) const
+	?Get@CArguments1@Mws@@QBEABVTDesC16@@XZ @ 11 NONAME ; class TDesC16 const & Mws::CArguments1::Get(void) const
+	?InternalizeL@CArguments1@Mws@@QAEXAAVRReadStream@@@Z @ 12 NONAME ; void Mws::CArguments1::InternalizeL(class RReadStream &)
+	?InternalizeL@CArguments1@Mws@@QAEXABVTDesC16@@@Z @ 13 NONAME ; void Mws::CArguments1::InternalizeL(class TDesC16 const &)
+	?NewL@CArguments1@Mws@@SAPAV12@XZ @ 14 NONAME ; class Mws::CArguments1 * Mws::CArguments1::NewL(void)
+	?NewL@CArgumentsQueryDialog@Mws@@SAPAV12@AAVTDes16@@W4TButtons@12@ABW4TTone@CAknQueryDialog@@@Z @ 15 NONAME ; class Mws::CArgumentsQueryDialog * Mws::CArgumentsQueryDialog::NewL(class TDes16 &, enum Mws::CArgumentsQueryDialog::TButtons, enum CAknQueryDialog::TTone const &)
+	?NewL@CArgumentsQueryDialog@Mws@@SAPAV12@ABVTDesC16@@AAVTDes16@@W4TButtons@12@ABW4TTone@CAknQueryDialog@@@Z @ 16 NONAME ; class Mws::CArgumentsQueryDialog * Mws::CArgumentsQueryDialog::NewL(class TDesC16 const &, class TDes16 &, enum Mws::CArgumentsQueryDialog::TButtons, enum CAknQueryDialog::TTone const &)
+	?NewL@CHttpdSettingsView@Mws@@SAPAV12@HPAVMHttpdSettingsViewHandler@2@PBVTHttpdSettings1@2@@Z @ 17 NONAME ; class Mws::CHttpdSettingsView * Mws::CHttpdSettingsView::NewL(int, class Mws::MHttpdSettingsViewHandler *, class Mws::THttpdSettings1 const *)
+	?NewLC@CArguments1@Mws@@SAPAV12@XZ @ 18 NONAME ; class Mws::CArguments1 * Mws::CArguments1::NewLC(void)
+	?NewLC@CArgumentsQueryDialog@Mws@@SAPAV12@AAVTDes16@@W4TButtons@12@ABW4TTone@CAknQueryDialog@@@Z @ 19 NONAME ; class Mws::CArgumentsQueryDialog * Mws::CArgumentsQueryDialog::NewLC(class TDes16 &, enum Mws::CArgumentsQueryDialog::TButtons, enum CAknQueryDialog::TTone const &)
+	?NewLC@CArgumentsQueryDialog@Mws@@SAPAV12@ABVTDesC16@@AAVTDes16@@W4TButtons@12@ABW4TTone@CAknQueryDialog@@@Z @ 20 NONAME ; class Mws::CArgumentsQueryDialog * Mws::CArgumentsQueryDialog::NewLC(class TDesC16 const &, class TDes16 &, enum Mws::CArgumentsQueryDialog::TButtons, enum CAknQueryDialog::TTone const &)
+	?NewLC@CHttpdSettingsView@Mws@@SAPAV12@HPAVMHttpdSettingsViewHandler@2@PBVTHttpdSettings1@2@@Z @ 21 NONAME ; class Mws::CHttpdSettingsView * Mws::CHttpdSettingsView::NewLC(int, class Mws::MHttpdSettingsViewHandler *, class Mws::THttpdSettings1 const *)
+	?ReadDataL@CArguments1@Mws@@QAEXAAVRReadStream@@@Z @ 22 NONAME ; void Mws::CArguments1::ReadDataL(class RReadStream &)
+	?SetL@CArguments1@Mws@@QAEXABVTDesC16@@@Z @ 23 NONAME ; void Mws::CArguments1::SetL(class TDesC16 const &)
+	?UpdateLeftSoftKeyL@CArgumentsQueryDialog@Mws@@MAEXXZ @ 24 NONAME ; void Mws::CArgumentsQueryDialog::UpdateLeftSoftKeyL(void)
+	?WriteDataL@CArguments1@Mws@@QBEXAAVRWriteStream@@@Z @ 25 NONAME ; void Mws::CArguments1::WriteDataL(class RWriteStream &) const
+

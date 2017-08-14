@@ -1,0 +1,152 @@
+/* Copyright 2006 Nokia Corporation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+NAME HDUI
+
+#include <eikon.rh>
+#include <avkon.rsg>
+#include <avkon.rh>
+#include <avkon.mbg>
+
+#include "httpdui/private.hrh"
+#include "httpdui/private.loc"
+
+
+RESOURCE RSS_SIGNATURE { }
+
+RESOURCE TBUF { buf = ""; }
+
+RESOURCE EIK_APP_INFO
+    {
+    status_pane = r_hdui_status_pane;
+    }
+
+
+RESOURCE STATUS_PANE_APP_MODEL r_hdui_status_pane
+    {
+    }
+
+
+// ---------------------------------------------------------
+//
+//   r_httpdui_main_view
+//
+// ---------------------------------------------------------
+
+RESOURCE MENU_PANE r_httpdui_main_menu
+    {
+    items=
+        {
+        MENU_ITEM { command = EHttpdCmdStart;
+                    txt     = text_httpd_softkey_start; },
+        MENU_ITEM { command = EHttpdCmdRestart; 
+                    txt     = text_httpd_softkey_restart; },
+        MENU_ITEM { command = EHttpdCmdStop; 
+                    txt     = text_httpd_softkey_stop; },
+        MENU_ITEM { command = EHttpdCmdReset;
+                    txt     = text_httpd_softkey_reset; },
+        MENU_ITEM { command = EHttpdCmdStartWLAN;
+                    txt     = text_httpd_softkey_start_wlan; },
+        MENU_ITEM { command = EHttpdCmdCloseWLAN;
+                    txt     = text_httpd_softkey_close_wlan; },
+        MENU_ITEM { command = EHttpdCmdAttachWLAN;
+                    txt     = text_httpd_softkey_attach_wlan; },
+        MENU_ITEM { command = EHttpdCmdArguments;
+                    txt     = text_httpd_softkey_arguments; },
+        MENU_ITEM { command = EHttpdCmdSettings;
+                    txt     = text_httpd_softkey_settings; },
+        MENU_ITEM { command = EAknCmdExit;
+                    txt     = text_httpd_softkey_exit; }
+        };
+    }
+
+RESOURCE MENU_BAR r_httpdui_main_menubar
+    {
+    titles=
+        {
+        MENU_TITLE { menu_pane=r_httpdui_main_menu; txt="App"; }
+        };
+    }
+
+RESOURCE AVKON_VIEW r_httpdui_main_view
+    {
+    menubar=r_httpdui_main_menubar;
+    cba=R_AVKON_SOFTKEYS_OPTIONS_EXIT;
+    }
+
+
+//----------------------------------------------------
+// Softkeys
+//----------------------------------------------------
+
+RESOURCE CBA r_httpdui_softkeys_options
+    {
+    buttons = 
+        {
+        CBA_BUTTON
+            {
+            id  = EAknSoftkeyOptions;
+            txt = text_httpd_softkey_options;
+            },
+        CBA_BUTTON
+            {
+            id  = EAknSoftkeyEmpty;
+            txt = "";
+            }
+        };
+    }
+
+
+//----------------------------------------------------
+// Dialogs
+//----------------------------------------------------
+
+RESOURCE DIALOG r_httpdui_start_wlan
+    {
+    flags = EAknDialogGenericNoteFlags | EEikDialogFlagWait;
+    buttons = R_AVKON_SOFTKEYS_YES_NO;
+    items = 
+        {
+        DLG_LINE
+            {
+            id = EGeneralQuery;
+            type = EAknCtNote;
+            control = AVKON_NOTE
+                {
+                layout         = EGeneralLayout;
+                singular_label = text_httpd_start_wlan;
+                };
+            }
+        };
+    }
+
+
+RESOURCE DIALOG r_httpdui_attach_wlan
+    {
+    flags = EAknDialogGenericNoteFlags | EEikDialogFlagWait;
+    buttons = R_AVKON_SOFTKEYS_YES_NO;
+    items = 
+        {
+        DLG_LINE
+            {
+            type = EAknCtNote;
+            control = AVKON_NOTE
+                {
+                layout         = EGeneralLayout;
+                singular_label = text_httpd_attach_wlan;
+                };
+            }
+        };
+    }

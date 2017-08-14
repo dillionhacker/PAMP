@@ -1,0 +1,15 @@
+/*
+		PHP testing application registration resource file.
+		
+		Authors: Mikko Heikelä <mikko.heikela@futurice.com>
+*/
+
+#include <appinfo.rh>
+
+UID2 KUidAppRegistrationResourceFile
+UID3 0x2000BB8E
+
+RESOURCE APP_REGISTRATION_INFO 
+	{
+	app_file="php";
+	}

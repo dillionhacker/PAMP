@@ -1,0 +1,6 @@
+Changes with Pamp 1.0.1
+
+  *) Targets for creating unsigned/signed installation packages 
+     renamed from usis/sis to sis/sisx.
+
+  *) pampui: Canceling WLAN selection box no longer causes error message.

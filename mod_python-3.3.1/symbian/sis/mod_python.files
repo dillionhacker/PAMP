@@ -1,0 +1,63 @@
+;
+; mod_python 
+;
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_python33.so" - "!:\sys\bin\httpd22-mod_python33.so"
+; Check ../config/symbian_mod_python_config.h and ../config/custom-config.h.template.
+MOD_PYTHON_BACKUP_SOURCE                                - MOD_PYTHON_BACKUP_TARGET
+
+;
+; Configuration
+;
+#if !defined(EXCLUDE_MOD_PYTHON_CONFIGURATION)
+IF NOT PACKAGE(0x20007E60)
+; MWS loads mod_python from its main conf-file so we add the configuration file
+; only if MWS has not already been installed.
+"data/apache/conf/extensions/mod_python.conf" - "c:\data\apache\conf\extensions\mod_python.conf"
+ENDIF
+#endif
+
+;
+; Mod_python files
+;
+"../../lib/python/mod_python/Cookie.py"          -"C:\resource\mod_python\Cookie.py"
+"../../lib/python/mod_python/Session.py"         -"C:\resource\mod_python\Session.py"
+"../../lib/python/mod_python/__init__.py"        -"C:\resource\mod_python\__init__.py"
+"../../lib/python/mod_python/apache.py"          -"C:\resource\mod_python\apache.py"
+"../../lib/python/mod_python/cache.py"           -"C:\resource\mod_python\cache.py"
+"../../lib/python/mod_python/cgihandler.py"      -"C:\resource\mod_python\cgihandler.py"
+"../../lib/python/mod_python/importer.py"        -"C:\resource\mod_python\importer.py"
+"../../lib/python/mod_python/psp.py"             -"C:\resource\mod_python\psp.py"
+"../../lib/python/mod_python/publisher.py"       -"C:\resource\mod_python\publisher.py"
+"../../lib/python/mod_python/python22.py"        -"C:\resource\mod_python\python22.py"
+"../../lib/python/mod_python/util.py"            -"C:\resource\mod_python\util.py"
+"../../lib/python/mod_python/testhandler.py"     -"C:\resource\mod_python\testhandler.py"
+
+
+;
+; Python files that can be installed on top of PyS60
+;
+"../python-2.2.3/original/lib/cgi.py"            -"C:\resource\mod_python\cgi.py"
+"../python-2.2.3/original/lib/dis.py"            -"C:\resource\mod_python\dis.py"
+"../python-2.2.3/original/lib/ftplib.py"         -"C:\resource\mod_python\ftplib.py"
+"../python-2.2.3/original/lib/gopherlib.py"      -"C:\resource\mod_python\gopherlib.py"
+"../python-2.2.3/original/lib/hmac.py"           -"C:\resource\mod_python\hmac.py"
+"../python-2.2.3/original/lib/inspect.py"        -"C:\resource\mod_python\inspect.py"
+"../python-2.2.3/original/lib/mimetypes.py"      -"C:\resource\mod_python\mimetypes.py"
+"../python-2.2.3/original/lib/posixpath.py"      -"C:\resource\mod_python\posixpath.py"
+"../python-2.2.3/original/lib/token.py"          -"C:\resource\mod_python\token.py"
+"../python-2.2.3/original/lib/tokenize.py"       -"C:\resource\mod_python\tokenize.py"
+"../python-2.2.3/original/lib/urllib2.py"        -"C:\resource\mod_python\urllib2.py"
+
+"../python-2.2.3/modified/lib/pickle.py"         -"C:\resource\mod_python\pickle.py"
+"../python-2.2.3/modified/lib/tempfile.py"       -"C:\resource\mod_python\tempfile.py"
+
+"../python-2.3.6/original/lib/new.py"            -"C:\resource\mod_python\new.py"
+
+
+;
+; Workaround files for Python files.
+;
+"../../lib/python/mod_python/dummy_threading.py" -"C:\resource\mod_python\dummy_threading.py"
+"../../lib/python/mod_python/pdb.py"             -"C:\resource\mod_python\pdb.py"
+"../../lib/python/mod_python/cPickle.py"         -"C:\resource\mod_python\cPickle.py"
+"../../lib/python/mod_python/cStringIO.py"       -"C:\resource\mod_python\cStringIO.py"

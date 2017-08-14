@@ -1,0 +1,78 @@
+/*
+   +----------------------------------------------------------------------+
+   | PHP Version 5                                                        |
+   +----------------------------------------------------------------------+
+   | Copyright (c) 2007 Nokia Corporation                                 |
+   +----------------------------------------------------------------------+
+   | This source file is subject to version 3.01 of the PHP license,      |
+   | that is bundled with this package in the file LICENSE, and is        |
+   | available through the world-wide-web at the following url:           |
+   | http://www.php.net/license/3_01.txt                                  |
+   | If you did not receive a copy of the PHP license and are unable to   |
+   | obtain it through the world-wide-web, please send a note to          |
+   | license@php.net so we can mail you a copy immediately.               |
+   +----------------------------------------------------------------------+
+ */
+
+#include "mmp.conf"
+
+
+TARGET          STATICLIBRARY_NAME(php_zend.lib)
+TARGETTYPE      LIB
+
+SYSTEMINCLUDE   \epoc32\include\stdapis
+SYSTEMINCLUDE   \epoc32\include 
+
+SYSTEMINCLUDE   ..\..
+SYSTEMINCLUDE   ..\..\Zend
+SYSTEMINCLUDE   ..\..\Main
+SYSTEMINCLUDE   ..\..\ext\standard
+
+SYSTEMINCLUDE   ..\..\ext\date\lib
+
+USERINCLUDE     ..
+USERINCLUDE     ..\..\tsrm
+USERINCLUDE     ..\..\regex
+USERINCLUDE     ..\..\ext\date\
+
+SOURCEPATH      ..\..\zend
+SOURCE          zend.c
+SOURCE          zend_alloc.c
+SOURCE          zend_API.c
+SOURCE          zend_builtin_functions.c
+SOURCE          zend_compile.c
+SOURCE          zend_constants.c
+SOURCE          zend_default_classes.c
+SOURCE          zend_dynamic_array.c
+SOURCE          zend_exceptions.c
+SOURCE          zend_execute.c
+SOURCE          zend_execute_API.c
+SOURCE          zend_extensions.c
+SOURCE          zend_hash.c
+SOURCE          zend_highlight.c
+SOURCE          zend_indent.c
+SOURCE          zend_ini.c
+SOURCE          zend_ini_parser.c
+SOURCE          zend_ini_scanner.c
+SOURCE          zend_interfaces.c
+SOURCE          zend_iterators.c
+SOURCE          zend_language_parser.c
+SOURCE          zend_language_scanner.c
+SOURCE          zend_list.c
+SOURCE          zend_llist.c
+SOURCE          zend_multibyte.c
+SOURCE          zend_objects.c
+SOURCE          zend_objects_API.c
+SOURCE          zend_object_handlers.c
+SOURCE          zend_opcode.c
+SOURCE          zend_operators.c
+SOURCE          zend_ptr_stack.c
+SOURCE          zend_qsort.c
+SOURCE          zend_sprintf.c
+SOURCE          zend_stack.c
+SOURCE          zend_stream.c
+SOURCE          zend_strtod.c
+SOURCE          zend_ts_hash.c
+SOURCE          zend_variables.c
+SOURCE          zend_timeout_symbian.cpp
+

@@ -1,0 +1,18 @@
+- chartables.c is generated using dftables.exe
+
+- dftables.exe is compiled using either the Microsoft or the CodeWarrior
+  compilers.
+
+It just proved too difficult to make this work from within the Symbian
+build system.
+
+So, do as follows if chartables.c needs to be regenerated.
+
+- Copy pcre.hs to pcre.h
+- Copy config.hs to config.h
+
+- [cl|mwccsym2].exe -I. dftables.c
+
+- dftables chartables.c
+
+- Delete pcre.h and config.h

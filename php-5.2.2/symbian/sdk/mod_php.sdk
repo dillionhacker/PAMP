@@ -1,0 +1,5 @@
+${EPOC32}/release/winscw/udeb/httpd22-mod_php.so  epoc32/release/winscw/udeb
+
+../sis/data/php/php.ini                           epoc32/winscw/c/data/php
+
+../sis/data/apache/conf/extensions/mod_php.conf   epoc32/winscw/c/data/apache/conf/extensions

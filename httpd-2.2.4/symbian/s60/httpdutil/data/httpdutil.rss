@@ -1,0 +1,176 @@
+/* Copyright 2006 Nokia Corporation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+NAME HDUL
+
+#include <eikon.rh>
+#include <avkon.rsg>
+#include <avkon.rh>
+#include <avkon.mbg>
+
+#include "httpdutil/private.hrh"
+#include "httpdutil/private.loc"
+
+
+// ---------------------------------------------------------
+//   
+//    Resource file signature 
+//
+// ---------------------------------------------------------
+
+RESOURCE RSS_SIGNATURE { }
+
+RESOURCE TBUF { buf = ""; }
+
+
+// ---------------------------------------------------------
+//
+//   r_httpdutil_settings_view
+//
+//   View
+//
+// ---------------------------------------------------------
+
+RESOURCE AVKON_VIEW r_httpdutil_settings_view
+    {
+    cba=R_AVKON_SOFTKEYS_OK_CANCEL;
+    }
+
+
+// ---------------------------------------------------------
+//
+// r_httpdutil_settings
+// 
+// Httpd settings dialog.
+//
+// ---------------------------------------------------------
+
+RESOURCE AVKON_SETTING_ITEM_LIST r_httpdutil_settings
+    {
+    title = text_httpd_settings;
+    items =
+        {
+        AVKON_SETTING_ITEM
+            {
+            identifier = EMwsHttpdSettingStackSize;
+            setting_page_resource = r_httpdutil_page_stack_size;
+            name = text_httpd_stack_size;
+            },
+        AVKON_SETTING_ITEM
+            {
+            identifier = EMwsHttpdSettingMinHeapSize;
+            setting_page_resource = r_httpdutil_page_min_heap_size;
+            name = text_httpd_min_heap_size;
+            },
+        AVKON_SETTING_ITEM
+            {
+            identifier = EMwsHttpdSettingMaxHeapSize;
+            setting_page_resource = r_httpdutil_page_max_heap_size;
+            name = text_httpd_max_heap_size;
+            }
+        };
+    }
+
+
+//----------------------------------------------------
+// Setting pages
+//----------------------------------------------------
+
+RESOURCE AVKON_SETTING_PAGE r_httpdutil_page_stack_size
+    {
+    label              = text_httpd_stack_size;
+    type               = EAknCtIntegerEdwin;
+    editor_resource_id = r_httpdutil_mem_size;
+    hint_text          = "";
+    }
+
+RESOURCE AVKON_SETTING_PAGE r_httpdutil_page_min_heap_size
+    {
+    label              = text_httpd_min_heap_size;
+    type               = EAknCtIntegerEdwin;
+    editor_resource_id = r_httpdutil_mem_size;
+    hint_text          = "";
+    }
+
+RESOURCE AVKON_SETTING_PAGE r_httpdutil_page_max_heap_size
+    {
+    label              = text_httpd_max_heap_size;
+    type               = EAknCtIntegerEdwin;
+    editor_resource_id = r_httpdutil_mem_size;
+    hint_text          = "";
+    }
+
+
+//----------------------------------------------------
+// Setting page configurations
+//----------------------------------------------------
+
+RESOURCE AVKON_INTEGER_EDWIN r_httpdutil_mem_size
+    {
+    min = 0;
+    maxlength = 9; // 2GB
+    }
+
+
+// ---------------------------------------------------------
+//
+// Httpd arguments dialog.
+//
+// ---------------------------------------------------------
+
+RESOURCE DIALOG r_httpdutil_arguments_dialog
+    {
+    flags   = EGeneralQueryFlags;
+    buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+    items   =
+        {
+        DLG_LINE
+            {
+            type    = EAknCtQuery;
+            id      = EGeneralQuery;
+            control = AVKON_DATA_QUERY
+                {   
+                layout = EDataLayout;
+                control = EDWIN
+                    {
+                    flags     = EEikEdwinNoHorizScrolling | EEikEdwinResizable;
+                    maxlength = KHttpdMaxArgumentsLength;
+                    width     = 4;
+                    lines     = 1;
+                    };
+                };
+            }
+        };
+    }
+
+
+RESOURCE CBA r_httpdutil_softkeys_save_cancel
+    {
+    buttons = 
+        {
+        CBA_BUTTON
+            {
+            id  = EAknSoftkeySave;
+            txt = text_httpd_softkey_save;
+            },
+        CBA_BUTTON
+            {
+            id  = EAknSoftkeyCancel;
+            txt = text_httpd_softkey_cancel;
+            }
+        };
+    }
+
+

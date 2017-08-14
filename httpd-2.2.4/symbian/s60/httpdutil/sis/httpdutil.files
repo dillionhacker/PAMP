@@ -1,0 +1,9 @@
+"EPOC32\release\PLATFORM\BUILD\httpdutil.dll"  -"!:\sys\bin\httpdutil.dll"
+"EPOC32\data\z\resource\apps\httpdutil.rsc"    -"!:\resource\apps\httpdutil.rsc"
+"EPOC32\data\z\resource\apps\httpdutil.mbm"    -"!:\resource\apps\httpdutil.mbm"
+
+IF NOT PACKAGE(0x20007E60)
+"..\data\httpdargs.dat"                        -"c:\data\apache\httpdargs.dat"
+ELSE
+"..\data\httpdargs_for_mws.dat"                -"c:\data\apache\httpdargs.dat"
+ENDIF

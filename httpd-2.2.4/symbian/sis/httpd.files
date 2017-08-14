@@ -1,0 +1,287 @@
+;
+; Httpds - the actual http server.
+;
+#if defined(SIS_INCLUDE_HTTPDS)
+"EPOC32\release\PLATFORM\BUILD\httpds22.exe"                - "!:\sys\bin\httpds22.exe"
+"EPOC32\data\z\private\10003a3f\import\apps\httpds_reg.rsc" - "!:\private\10003a3f\import\apps\httpds_reg.rsc"
+; Check ../config/config.h and ../config/custom-config.h.template.
+HTTPDS_BACKUP_SOURCE                                        - HTTPDS_BACKUP_TARGET
+#endif
+
+;
+; Httpdc - the httpd client dll
+;
+#if defined(SIS_INCLUDE_HTTPDC)
+"EPOC32\release\PLATFORM\BUILD\httpdc22.dll" - "!:\sys\bin\httpdc22.dll"
+#endif
+
+;
+; The httpd libraries.
+;
+#if defined(SIS_INCLUDE_LIBHTTPD)
+"EPOC32\release\PLATFORM\BUILD\libhttpd22.dll"  - "!:\sys\bin\libhttpd22.dll"
+#endif
+
+#if defined(SIS_INCLUDE_LIBAPRUTIL)
+"EPOC32\release\PLATFORM\BUILD\libaprutil1.dll"  - "!:\sys\bin\libaprutil1.dll"
+#endif
+
+#if defined(SIS_INCLUDE_LIBAPR)
+"EPOC32\release\PLATFORM\BUILD\libapr1.dll" - "!:\sys\bin\libapr1.dll"
+#endif
+
+
+;
+; Apache modules.
+;
+#if !defined(HAVE_BUILTIN_MOD_ALIAS) && defined(SIS_INCLUDE_MOD_ALIAS)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_alias.so"  - "!:\sys\bin\httpd22-mod_alias.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_ASIS) && defined(SIS_INCLUDE_MOD_ASIS)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_asis.so"  - "!:\sys\bin\httpd22-mod_asis.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_AUTH_BASIC) && defined(SIS_INCLUDE_MOD_AUTH_BASIC)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_auth_basic.so"  - "!:\sys\bin\httpd22-mod_auth_basic.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_AUTH_DIGEST) && defined(SIS_INCLUDE_MOD_AUTH_DIGEST)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_auth_digest.so"  - "!:\sys\bin\httpd22-mod_auth_digest.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_AUTHN_ALIAS) && defined(SIS_INCLUDE_MOD_AUTHN_ALIAS)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_authn_alias.so"  - "!:\sys\bin\httpd22-mod_authn_alias.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_AUTHN_ANON) && defined(SIS_INCLUDE_MOD_AUTHN_ANON)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_authn_anon.so"  - "!:\sys\bin\httpd22-mod_authn_anon.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_AUTHN_DBM) && defined(SIS_INCLUDE_MOD_AUTHN_DBM)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_authn_dbm.so"  - "!:\sys\bin\httpd22-mod_authn_dbm.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_AUTHN_DEFAULT) && defined(SIS_INCLUDE_MOD_AUTHN_DEFAULT)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_authn_default.so"  - "!:\sys\bin\httpd22-mod_authn_default.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_AUTHN_FILE) && defined(SIS_INCLUDE_MOD_AUTHN_FILE)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_authn_file.so"  - "!:\sys\bin\httpd22-mod_authn_file.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_AUTHZ_DBM) && defined(SIS_INCLUDE_MOD_AUTHZ_DBM)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_authz_dbm.so"  - "!:\sys\bin\httpd22-mod_authz_dbm.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_AUTHZ_DEFAULT) && defined(SIS_INCLUDE_MOD_AUTHZ_DEFAULT)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_authz_default.so"  - "!:\sys\bin\httpd22-mod_authz_default.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_AUTHZ_GROUPFILE) && defined(SIS_INCLUDE_MOD_AUTHZ_GROUPFILE)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_authz_groupfile.so"  - "!:\sys\bin\httpd22-mod_authz_groupfile.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_AUTHZ_HOST) && defined(SIS_INCLUDE_MOD_AUTHZ_HOST)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_authz_host.so"  - "!:\sys\bin\httpd22-mod_authz_host.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_AUTHZ_USER) && defined(SIS_INCLUDE_MOD_AUTHZ_USER)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_authz_user.so"  - "!:\sys\bin\httpd22-mod_authz_user.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_AUTOINDEX) && defined(SIS_INCLUDE_MOD_AUTOINDEX)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_autoindex.so"  - "!:\sys\bin\httpd22-mod_autoindex.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_BUCKETEER) && defined(SIS_INCLUDE_MOD_BUCKETEER)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_bucketeer.so"  - "!:\sys\bin\httpd22-mod_bucketeer.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_CACHE) && defined(SIS_INCLUDE_MOD_CACHE)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_cache.so"  - "!:\sys\bin\httpd22-mod_cache.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_CASE_FILTER_IN) && defined(SIS_INCLUDE_MOD_CASE_FILTER_IN)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_case_filter_in.so"  - "!:\sys\bin\httpd22-mod_case_filter_in.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_CASE_FILTER) && defined(SIS_INCLUDE_MOD_CASE_FILTER)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_case_filter.so"  - "!:\sys\bin\httpd22-mod_case_filter.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_CERN_META) && defined(SIS_INCLUDE_MOD_CERN_META)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_cern_meta.so"  - "!:\sys\bin\httpd22-mod_cern_meta.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_CHARSET_LITE) && defined(SIS_INCLUDE_MOD_CHARSET_LITE)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_charset_lite.so"  - "!:\sys\bin\httpd22-mod_charset_lite.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_DAV) && defined(SIS_INCLUDE_MOD_DAV)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_dav.so"  - "!:\sys\bin\httpd22-mod_dav.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_DAV_FS) && defined(SIS_INCLUDE_MOD_DAV_FS)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_dav_fs.so"  - "!:\sys\bin\httpd22-mod_dav_fs.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_DAV_LOCK) && defined(SIS_INCLUDE_MOD_DAV_LOCK)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_dav_lock.so"  - "!:\sys\bin\httpd22-mod_dav_lock.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_DEFLATE) && defined(SIS_INCLUDE_MOD_DEFLATE)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_deflate.so"  - "!:\sys\bin\httpd22-mod_deflate.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_DIR) && defined(SIS_INCLUDE_MOD_DIR)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_dir.so"  - "!:\sys\bin\httpd22-mod_dir.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_DUMPIO) && defined(SIS_INCLUDE_MOD_DUMPIO)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_dumpio.so"  - "!:\sys\bin\httpd22-mod_dumpio.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_ECHO) && defined(SIS_INCLUDE_MOD_ECHO)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_echo.so"  - "!:\sys\bin\httpd22-mod_echo.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_ENV) && defined(SIS_INCLUDE_MOD_ENV)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_env.so"  - "!:\sys\bin\httpd22-mod_env.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_EXAMPLE) && defined(SIS_INCLUDE_MOD_EXAMPLE)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_example.so"  - "!:\sys\bin\httpd22-mod_example.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_EXPIRES) && defined(SIS_INCLUDE_MOD_EXPIRES)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_expires.so"  - "!:\sys\bin\httpd22-mod_expires.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_EXT_FILTER) && defined(SIS_INCLUDE_MOD_EXT_FILTER)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_ext_filter.so"  - "!:\sys\bin\httpd22-mod_ext_filter.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_FILTER) && defined(SIS_INCLUDE_MOD_FILTER)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_filter.so"  - "!:\sys\bin\httpd22-mod_filter.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_HEADERS) && defined(SIS_INCLUDE_MOD_HEADERS)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_headers.so"  - "!:\sys\bin\httpd22-mod_headers.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_IDENT) && defined(SIS_INCLUDE_MOD_IDENT)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_ident.so"  - "!:\sys\bin\httpd22-mod_ident.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_IMAGEMAP) && defined(SIS_INCLUDE_MOD_IMAGEMAP)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_imagemap.so"  - "!:\sys\bin\httpd22-mod_imagemap.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_INCLUDE) && defined(SIS_INCLUDE_MOD_INCLUDE)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_include.so"  - "!:\sys\bin\httpd22-mod_include.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_INFO) && defined(SIS_INCLUDE_MOD_INFO)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_info.so"  - "!:\sys\bin\httpd22-mod_info.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_LOGIO) && defined(SIS_INCLUDE_MOD_LOGIO)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_logio.so"  - "!:\sys\bin\httpd22-mod_logio.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_LOG_CONFIG) && defined(SIS_INCLUDE_MOD_LOG_CONFIG)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_log_config.so"  - "!:\sys\bin\httpd22-mod_log_config.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_LOG_FORENSIC) && defined(SIS_INCLUDE_MOD_LOG_FORENSIC)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_log_forensic.so"  - "!:\sys\bin\httpd22-mod_log_forensic.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_MIME) && defined(SIS_INCLUDE_MOD_MIME)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_mime.so"  - "!:\sys\bin\httpd22-mod_mime.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_MIME_MAGIC) && defined(SIS_INCLUDE_MOD_MIME_MAGIC)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_mime_magic.so"  - "!:\sys\bin\httpd22-mod_mime_magic.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_NEGOTIATION) && defined(SIS_INCLUDE_MOD_NEGOTIATION)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_negotiation.so"  - "!:\sys\bin\httpd22-mod_negotiation.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_PROXY_AJP) && defined(SIS_INCLUDE_MOD_PROXY_AJP)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_proxy_ajp.so"  - "!:\sys\bin\httpd22-mod_proxy_ajp.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_PROXY_BALANCER) && defined(SIS_INCLUDE_MOD_PROXY_BALANCER)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_proxy_balancer.so"  - "!:\sys\bin\httpd22-mod_proxy_balancer.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_PROXY_CONNECT) && defined(SIS_INCLUDE_MOD_PROXY_CONNECT)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_proxy_connect.so"  - "!:\sys\bin\httpd22-mod_proxy_connect.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_PROXY_FTP) && defined(SIS_INCLUDE_MOD_PROXY_FTP)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_proxy_ftp.so"  - "!:\sys\bin\httpd22-mod_proxy_ftp.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_PROXY_HTTP) && defined(SIS_INCLUDE_MOD_PROXY_HTTP)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_proxy_http.so"  - "!:\sys\bin\httpd22-mod_proxy_http.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_PROXY) && defined(SIS_INCLUDE_MOD_PROXY)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_proxy.so"  - "!:\sys\bin\httpd22-mod_proxy.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_REWRITE) && defined(SIS_INCLUDE_MOD_REWRITE)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_rewrite.so"  - "!:\sys\bin\httpd22-mod_rewrite.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_SETENVIF) && defined(SIS_INCLUDE_MOD_SETENVIF)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_setenvif.so"  - "!:\sys\bin\httpd22-mod_setenvif.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_SPELING) && defined(SIS_INCLUDE_MOD_SPELING)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_speling.so"  - "!:\sys\bin\httpd22-mod_speling.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_SSL) && defined(SIS_INCLUDE_MOD_SSL)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_ssl.so"  - "!:\sys\bin\httpd22-mod_ssl.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_STATUS) && defined(SIS_INCLUDE_MOD_STATUS)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_status.so"  - "!:\sys\bin\httpd22-mod_status.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_UNIQUE_ID) && defined(SIS_INCLUDE_MOD_UNIQUE_ID)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_unique_id.so"  - "!:\sys\bin\httpd22-mod_unique_id.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_USERDIR) && defined(SIS_INCLUDE_MOD_USERDIR)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_userdir.so"  - "!:\sys\bin\httpd22-mod_userdir.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_USERTRACK) && defined(SIS_INCLUDE_MOD_USERTRACK)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_usertrack.so"  - "!:\sys\bin\httpd22-mod_usertrack.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_VERSION) && defined(SIS_INCLUDE_MOD_VERSION)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_version.so"  - "!:\sys\bin\httpd22-mod_version.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_VHOST_ALIAS) && defined(SIS_INCLUDE_MOD_VHOST_ALIAS)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_vhost_alias.so"  - "!:\sys\bin\httpd22-mod_vhost_alias.so"
+#endif
+
+
+;
+; S60/Symbian demo modules
+;
+#if !defined(HAVE_BUILTIN_MOD_SYMBIAN) && defined(SIS_INCLUDE_MOD_SYMBIAN)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_symbian.so"  - "!:\sys\bin\httpd22-mod_symbian.so"
+#endif
+
+#if !defined(HAVE_BUILTIN_MOD_S60) && defined(SIS_INCLUDE_MOD_S60)
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_s60.so"  - "!:\sys\bin\httpd22-mod_s60.so"
+#endif

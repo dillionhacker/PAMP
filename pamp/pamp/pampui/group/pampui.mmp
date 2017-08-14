@@ -1,0 +1,101 @@
+/* Copyright 2007 Nokia Corporation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+#include "../public/pampui/guidspampui.hrh"
+
+
+TARGET          pampui.exe
+TARGETTYPE      exe
+UID             0x0 UID3_PAMPUI
+SECUREID        UID3_PAMPUI
+EPOCSTACKSIZE   0x5000
+
+CAPABILITY      LocalServices\
+                NetworkServices
+
+SYSTEMINCLUDE   \epoc32\include
+SYSTEMINCLUDE   \epoc32\include\stdapis
+SYSTEMINCLUDE   \epoc32\include\mws
+
+SYSTEMINCLUDE   \epoc32\include\mysql-5.0
+
+USERINCLUDE     ..\..\..\httpd-2.2.4\symbian\s60\httpdutil\public
+USERINCLUDE     ..\public
+USERINCLUDE     ..\private
+
+START BITMAP    pampui.mbm
+HEADER
+TARGETPATH      \resource\apps
+SOURCEPATH      ..\data
+SOURCE          c24 apache_bo_248x24.bmp
+SOURCE          c24 apache_pb_248x24.bmp
+SOURCE          c24 php_power_white.bmp
+SOURCE          c24 powered_by_mysql_125x64.bmp
+END
+
+START RESOURCE  ..\data\pampui.rss
+  HEADER
+  TARGETPATH    \resource\apps
+END
+
+START RESOURCE  ..\data\pampui_reg.rss
+#if defined(WINSCW)
+  TARGETPATH    \private\10003a3f\apps
+#else
+  TARGETPATH    \private\10003a3f\import\apps
+#endif
+END
+
+START RESOURCE  ..\data\pampui_loc.rss
+  TARGETPATH    \resource\apps
+END
+
+LANG            SC
+
+SOURCEPATH      ..\src
+SOURCE          pampui.cpp
+SOURCE          pampui_capplication.cpp 
+SOURCE          pampui_cappui.cpp
+SOURCE          pampui_cdocument.cpp
+SOURCE          pampui_cmaincontainer.cpp
+SOURCE          pampui_cmainview.cpp
+SOURCE          cwlan.cpp
+
+
+//STATICLIBRARY   libmysql.lib
+
+LIBRARY         aknnotify.lib
+LIBRARY         apengine.lib
+LIBRARY         apparc.lib 
+LIBRARY         avkon.lib
+LIBRARY         bafl.lib
+LIBRARY         commdb.lib
+LIBRARY         cone.lib 
+LIBRARY         efsrv.lib
+LIBRARY         eikcoctl.lib
+LIBRARY         eikcore.lib 
+LIBRARY         esock.lib
+LIBRARY         estor.lib
+LIBRARY         euser.lib 
+LIBRARY         fbscli.lib 
+LIBRARY         insock.lib
+LIBRARY         libc.lib
+LIBRARY         libm.lib
+LIBRARY         libpthread.lib
+LIBRARY         libz.lib
+
+LIBRARY         mysqldutil.lib
+LIBRARY         httpdutil.lib
+LIBRARY         httpdc.lib

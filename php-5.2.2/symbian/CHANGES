@@ -1,0 +1,14 @@
+Changes with Pamp PHP 5.2.2 for Symbian/S60 1.0.2
+
+  *) xsl extension now included.
+
+  *) dom extension now included.
+
+  *) MySQL now linked to via library (client.c is not included in build).
+
+  *) Cleanup
+
+Changes with Pamp PHP 5.2.2 for Symbian/S60 1.0.1
+
+  *) Targets for creating unsigned/signed installation packages 
+     renamed from usis/sis to sis/sisx.

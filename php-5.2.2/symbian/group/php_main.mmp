@@ -1,0 +1,207 @@
+/*
+   +----------------------------------------------------------------------+
+   | PHP Version 5                                                        |
+   +----------------------------------------------------------------------+
+   | Copyright (c) 2007 Nokia Corporation                              	  |
+   +----------------------------------------------------------------------+
+   | This source file is subject to version 3.01 of the PHP license,      |
+   | that is bundled with this package in the file LICENSE, and is        |
+   | available through the world-wide-web at the following url:           |
+   | http://www.php.net/license/3_01.txt                                  |
+   | If you did not receive a copy of the PHP license and are unable to   |
+   | obtain it through the world-wide-web, please send a note to          |
+   | license@php.net so we can mail you a copy immediately.               |
+   +----------------------------------------------------------------------+
+ */
+
+#include "mmp.conf"
+
+
+TARGET          STATICLIBRARY_NAME(php_main.lib)
+TARGETTYPE      LIB
+
+UID             0x1000008d 0
+
+#include "../components_symbian.h"
+
+SYSTEMINCLUDE   \epoc32\include\stdapis
+SYSTEMINCLUDE 	\epoc32\include 
+
+SYSTEMINCLUDE 	..\..
+SYSTEMINCLUDE 	..\..\Zend
+SYSTEMINCLUDE 	..\..\Main
+SYSTEMINCLUDE 	..\..\ext\standard
+
+SYSTEMINCLUDE 	..\..\ext\date\lib
+
+USERINCLUDE	..
+USERINCLUDE	..\..\tsrm
+USERINCLUDE	..\..\regex
+USERINCLUDE 	..\..\ext\date
+USERINCLUDE	..\..\symbian\resolver
+
+#if HAVE_DOM
+USERINCLUDE     ..\..\ext\dom
+#endif
+
+#if HAVE_MBSTRING
+USERINCLUDE     ..\..\ext\mbstring
+SYSTEMINCLUDE   ..\..\ext\mbstring\libmbfl
+SYSTEMINCLUDE   ..\..\ext\mbstring\libmbfl\mbfl
+#endif
+
+#if HAVE_MYSQLI
+SYSTEMINCLUDE   \epoc32\include\mysql-5.0
+#endif
+
+#if HAVE_CURL
+SYSTEMINCLUDE   \epoc32\include\curl-7.16
+USERINCLUDE     \epoc32\include\curl-7.16\curl
+#endif
+
+#if HAVE_PCRE
+USERINCLUDE     ..\..\ext\pcre
+USERINCLUDE     ..\..\ext\pcre\pcrelib
+#endif
+
+#if HAVE_LIBGD
+SYSTEMINCLUDE   ..\..\ext\gd\libgd
+#endif
+
+#if HAVE_LIBXML
+SYSTEMINCLUDE   \epoc32\include\libxml2-2.6
+#endif
+
+#if HAVE_XSL
+USERINCLUDE     ..\..\ext\xsl
+SYSTEMINCLUDE   \epoc32\include\libxslt-1.1
+USERINCLUDE     \epoc32\include\libxslt-1.1\libxslt
+#endif
+
+SOURCEPATH      ..\..\main
+SOURCE          alloca.c 
+SOURCE          fopen_wrappers.c
+SOURCE          main.c
+SOURCE          mergesort.c
+SOURCE          network.c
+SOURCE          output.c 
+SOURCE          php_content_types.c
+SOURCE          php_ini.c
+SOURCE          php_logos.c
+SOURCE          php_open_temporary_file.c
+SOURCE          php_scandir.c
+SOURCE          php_sprintf.c
+SOURCE          php_ticks.c
+SOURCE          php_variables.c
+SOURCE          reentrancy.c
+SOURCE          rfc1867.c
+SOURCE          safe_mode.c
+SOURCE          SAPI.c   
+SOURCE          snprintf.c
+SOURCE          spprintf.c
+SOURCE          strlcat.c
+SOURCE          strlcpy.c
+SOURCE          internal_functions.c
+
+SOURCEPATH      ..\..\main\streams
+SOURCE          cast.c
+SOURCE          filter.c
+SOURCE          memory.c
+SOURCE          mmap.c
+SOURCE          plain_wrapper.c
+SOURCE          streams.c
+SOURCE          transports.c
+SOURCE          userspace.c
+SOURCE          xp_socket.c
+
+SOURCEPATH      ..\..\ext\standard
+SOURCE          array.c
+SOURCE          assert.c
+SOURCE          base64.c
+SOURCE          basic_functions.c
+SOURCE          browscap.c
+SOURCE          crc32.c
+SOURCE          credits.c
+SOURCE          crypt.c
+SOURCE          css.c
+SOURCE          cyr_convert.c
+SOURCE          datetime.c
+SOURCE          dir.c
+SOURCE          dl.c
+SOURCE          dns.c
+SOURCE          exec.c
+SOURCE          file.c
+SOURCE          filestat.c
+SOURCE          filters.c
+SOURCE          flock_compat.c
+SOURCE          formatted_print.c
+SOURCE          fsock.c
+SOURCE          ftok.c
+SOURCE          ftp_fopen_wrapper.c
+SOURCE          head.c
+SOURCE          html.c
+SOURCE          http.c
+SOURCE          http_fopen_wrapper.c
+SOURCE          image.c
+SOURCE          incomplete_class.c
+SOURCE          info.c
+SOURCE          iptc.c
+SOURCE          lcg.c
+SOURCE          levenshtein.c
+SOURCE          link.c
+SOURCE          mail.c
+SOURCE          symbian_mail.cpp
+SOURCE          math.c
+SOURCE          md5.c
+SOURCE          metaphone.c
+SOURCE          microtime.c
+SOURCE          pack.c
+SOURCE          pageinfo.c
+SOURCE          php_fopen_wrapper.c
+SOURCE          proc_open.c
+SOURCE          quot_print.c
+SOURCE          rand.c
+SOURCE          reg.c
+SOURCE          scanf.c
+SOURCE          sha1.c
+SOURCE          soundex.c
+SOURCE          streamsfuncs.c
+SOURCE          string.c
+SOURCE          strnatcmp.c
+SOURCE          syslog.c
+SOURCE          type.c
+SOURCE          uniqid.c
+SOURCE          url.c
+SOURCE          url_scanner.c
+SOURCE          url_scanner_ex.c
+SOURCE          user_filters.c
+SOURCE          uuencode.c
+SOURCE          var.c
+SOURCE          var_unserializer.c
+SOURCE          versioning.c
+
+SOURCEPATH      ..\..\ext\reflection
+SOURCE          php_reflection.c
+
+SOURCEPATH      ..\..\ext\date
+SOURCE          php_date.c
+
+SOURCEPATH      ..\..\symbian\resolver
+SOURCE          hostresolver.cpp
+
+SOURCEPATH      ..\..\ext\date\lib
+SOURCE          astro.c
+SOURCE          dow.c
+SOURCE          parse_date.c
+SOURCE          parse_tz.c
+SOURCE          timelib.c
+SOURCE          tm2unixtime.c
+SOURCE          unixtime2tm.c
+
+SOURCEPATH      ..\..\regex
+SOURCE          regcomp.c
+SOURCE          regerror.c
+SOURCE          regexec.c
+SOURCE          regfree.c
+SOURCE          split.c
+

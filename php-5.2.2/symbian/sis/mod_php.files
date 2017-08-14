@@ -1,0 +1,34 @@
+; License to display
+;
+"LICENSE_for_displaying" - "", FT, TC
+
+; License to install
+;
+"..\..\LICENSE" - "C:\data\php\LICENSE"
+
+; Files to copy
+;
+"EPOC32\release\PLATFORM\BUILD\httpd22-mod_php.so" - "!:\sys\bin\httpd22-mod_php.so"
+
+"data\php\php.ini" - "c:\data\php\php.ini"
+
+;
+; Location is different depending on whether MWS is installed or not.
+; 
+
+IF PACKAGE(0x20007E60)
+; MWS is installed.
+
+IF EXISTS("F:\Data\Web Server\conf\extensions")
+"data\apache\conf\extensions\mod_php.conf" - "f:\data\web server\conf\extensions\mod_php.conf"
+ELSEIF EXISTS("E:\Data\Web Server\conf\extensions")
+"data\apache\conf\extensions\mod_php.conf" - "e:\data\web server\conf\extensions\mod_php.conf"
+ELSE
+"data\apache\conf\extensions\mod_php.conf" - "c:\data\web server\conf\extensions\mod_php.conf"
+ENDIF
+
+ELSE
+
+"data\apache\conf\extensions\mod_php.conf" - "c:\data\apache\conf\extensions\mod_php.conf"
+
+ENDIF

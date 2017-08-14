@@ -1,0 +1,72 @@
+; Copyright 2006 Nokia Corporation
+;
+; Licensed under the Apache License, Version 2.0 (the "License");
+; you may not use this file except in compliance with the License.
+; You may obtain a copy of the License at
+;
+;     http://www.apache.org/licenses/LICENSE-2.0
+;
+; Unless required by applicable law or agreed to in writing, software
+; distributed under the License is distributed on an "AS IS" BASIS,
+; WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+; See the License for the specific language governing permissions and
+; limitations under the License.
+
+; Languages
+&EN
+
+; Localized vendor name
+%{"Nokia Research Center"}
+
+; Non-Localized vendor name
+:"Nokia Research Center"
+
+; Package UID
+;
+; If you think of changing the UID, check httpd-2.2.4/symbian/config/config.h.
+;
+#{"Pamp config"},(0xe57b3de4), 1 ,0 ,0
+
+; S60v3
+[0x101f7961] , 0, 0, 0, {"Series60ProductID"}
+
+;
+; Except for httpd.conf identical with the one of httpd.
+; 
+"..\..\httpd-2.2.4\symbian\sis\data\apache\conf\default\charset.conv"                  -"c:\data\apache\conf\default\charset.conv"
+"..\..\httpd-2.2.4\symbian\sis\data\apache\conf\default\httpd-autoindex.conf"          -"c:\data\apache\conf\default\httpd-autoindex.conf"
+"..\..\httpd-2.2.4\symbian\sis\data\apache\conf\default\httpd-dav.conf"                -"c:\data\apache\conf\default\httpd-dav.conf"
+"..\..\httpd-2.2.4\symbian\sis\data\apache\conf\default\httpd-default.conf"            -"c:\data\apache\conf\default\httpd-default.conf"
+"..\..\httpd-2.2.4\symbian\sis\data\apache\conf\default\httpd-info.conf"               -"c:\data\apache\conf\default\httpd-info.conf"
+"..\..\httpd-2.2.4\symbian\sis\data\apache\conf\default\httpd-languages.conf"          -"c:\data\apache\conf\default\httpd-languages.conf"
+"..\..\httpd-2.2.4\symbian\sis\data\apache\conf\default\httpd-manual.conf"             -"c:\data\apache\conf\default\httpd-manual.conf"
+"..\..\httpd-2.2.4\symbian\sis\data\apache\conf\default\httpd-mpm.conf"                -"c:\data\apache\conf\default\httpd-mpm.conf"
+"..\..\httpd-2.2.4\symbian\sis\data\apache\conf\default\httpd-multilang-errordoc.conf" -"c:\data\apache\conf\default\httpd-multilang-errordoc.conf"
+"..\..\httpd-2.2.4\symbian\sis\data\apache\conf\default\httpd-ssl.conf"                -"c:\data\apache\conf\default\httpd-ssl.conf"
+"..\..\httpd-2.2.4\symbian\sis\data\apache\conf\default\httpd-userdir.conf"            -"c:\data\apache\conf\default\httpd-userdir.conf"
+"..\..\httpd-2.2.4\symbian\sis\data\apache\conf\default\httpd-vhosts.conf"             -"c:\data\apache\conf\default\httpd-vhosts.conf"
+"..\..\httpd-2.2.4\symbian\sis\data\apache\conf\default\httpd.conf"                    -"c:\data\apache\conf\default\httpd.conf"
+"..\..\httpd-2.2.4\symbian\sis\data\apache\conf\default\magic"                         -"c:\data\apache\conf\default\magic"
+"..\..\httpd-2.2.4\symbian\sis\data\apache\conf\default\mime.types"                    -"c:\data\apache\conf\default\mime.types"
+"..\..\httpd-2.2.4\symbian\sis\data\apache\conf\extra\httpd-autoindex.conf "           -"c:\data\apache\conf\extra\httpd-autoindex.conf"
+"..\..\httpd-2.2.4\symbian\sis\data\apache\conf\extra\httpd-dav.conf"                  -"c:\data\apache\conf\extra\httpd-dav.conf"
+"..\..\httpd-2.2.4\symbian\sis\data\apache\conf\extra\httpd-default.conf"              -"c:\data\apache\conf\extra\httpd-default.conf"
+"..\..\httpd-2.2.4\symbian\sis\data\apache\conf\extra\httpd-info.conf"                 -"c:\data\apache\conf\extra\httpd-info.conf"
+"..\..\httpd-2.2.4\symbian\sis\data\apache\conf\extra\httpd-languages.conf"            -"c:\data\apache\conf\extra\httpd-languages.conf"
+"..\..\httpd-2.2.4\symbian\sis\data\apache\conf\extra\httpd-manual.conf"               -"c:\data\apache\conf\extra\httpd-manual.conf"
+"..\..\httpd-2.2.4\symbian\sis\data\apache\conf\extra\httpd-mpm.conf"                  -"c:\data\apache\conf\extra\httpd-mpm.conf"
+"..\..\httpd-2.2.4\symbian\sis\data\apache\conf\extra\httpd-multilang-errordoc.conf"   -"c:\data\apache\conf\extra\httpd-multilang-errordoc.conf"
+"..\..\httpd-2.2.4\symbian\sis\data\apache\conf\extra\httpd-ssl.conf"                  -"c:\data\apache\conf\extra\httpd-ssl.conf"
+"..\..\httpd-2.2.4\symbian\sis\data\apache\conf\extra\httpd-userdir.conf"              -"c:\data\apache\conf\extra\httpd-userdir.conf"
+"..\..\httpd-2.2.4\symbian\sis\data\apache\conf\extra\httpd-vhosts.conf"               -"c:\data\apache\conf\extra\httpd-vhosts.conf"
+"..\..\httpd-2.2.4\symbian\sis\data\apache\conf\extra\httpd-s60.conf"                  -"c:\data\apache\conf\extra\httpd-s60.conf"
+"..\..\httpd-2.2.4\symbian\sis\data\apache\conf\charset.conv"                          -"c:\data\apache\conf\charset.conv"
+; NOTE the 2 following lines.
+;"..\..\httpd-2.2.4\symbian\sis\data\apache\conf\httpd.conf"                            -"c:\data\apache\conf\httpd.conf"
+"data\apache\conf\httpd.conf"                                                          -"c:\data\apache\conf\httpd.conf"
+"..\..\httpd-2.2.4\symbian\sis\data\apache\conf\magic"                                 -"c:\data\apache\conf\magic"
+"..\..\httpd-2.2.4\symbian\sis\data\apache\conf\mime.types"                            -"c:\data\apache\conf\mime.types"
+"..\..\httpd-2.2.4\symbian\sis\data\apache\conf\openssl.cnf"                           -"c:\data\apache\conf\openssl.cnf"
+"..\..\httpd-2.2.4\symbian\sis\data\apache\conf\users.txt"                             -"c:\data\apache\conf\users.txt"
+"..\..\httpd-2.2.4\symbian\sis\data\apache\conf\extensions\README.CONF"                -"c:\data\apache\conf\extensions\README.TXT"
+"..\..\httpd-2.2.4\symbian\sis\data\apache\logs\error.log"                             -"c:\data\apache\logs\error.log"

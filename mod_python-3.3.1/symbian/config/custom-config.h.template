@@ -1,0 +1,52 @@
+#ifndef custom_config_h
+#define custom_config_h
+/* Copyright 2008 Nokia Corporation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
+/*
+ * The Platform ID used in package files.
+ *
+ * Default: S60 3rd Edition
+ */
+//#define PlatID_S60_DEFAULT
+
+
+/*
+ * The UIDs of components.
+ *
+ * Default: Check config.h
+ */
+//#define UID3_MOD_PYTHON
+
+
+/*
+ * Capabilities
+ *
+ * Default: Max for self-signed if MWS_WITH_DEVCERT is NOT defined.
+ *          Max for devcert if MWS_WITH_DEVCERT is defined.
+ *
+ * That is, to turn on devcert capabilities make MWS_WITH_DEVCERT
+ * visible below.
+ * 
+ * For more specific capabilties, define them explicitly. Check from
+ * config.h what they should look like.
+ */
+//#define MWS_WITH_DEVCERT
+
+//#define MWS_DLL_CAPABILITIES
+//#define MWS_HTTPDS_CAPABILITIES
+
+#endif

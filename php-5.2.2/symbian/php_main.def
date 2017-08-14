@@ -1,0 +1,6 @@
+EXPORTS
+	core_globals @ 1 NONAME DATA 296
+	display_ini_entries @ 2 NONAME
+	output_globals @ 3 NONAME DATA 88
+	php_get_highlight_struct @ 4 NONAME
+

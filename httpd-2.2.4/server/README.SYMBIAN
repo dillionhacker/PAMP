@@ -1,0 +1,7 @@
+test_char.h should be generate at build time using gen_test_char.c,
+but it is rather difficult to make that happen automatically 
+during the build.
+
+
+        [cl|mwccsym2].exe -D__SYMBIAN32__ gen_test_char.c
+        gen_test_char > test_char.h

@@ -1,0 +1,83 @@
+/* Copyright 2006 Nokia Corporation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+#include "../../../config/symbian_httpd_config.h"
+
+
+TARGET          httpdui.exe
+TARGETTYPE      EXE
+UID             0x0 UID3_HTTPDUI
+EPOCSTACKSIZE   0x5000
+
+CAPABILITY      NetworkServices
+
+SYSTEMINCLUDE   \epoc32\include
+SYSTEMINCLUDE   \epoc32\include\mws
+
+USERINCLUDE     ..\..\httpdutil\public
+USERINCLUDE     ..\public
+USERINCLUDE     ..\private
+/* 
+ * The following line is only needed for the httpdui_reg.rss
+ * compilation below as it seems that the preprocessor of rss-files
+ * does not handle includes the same way the c-preprocessor does.
+ */
+USERINCLUDE     ..\..\..\config
+
+START RESOURCE  ..\data\httpdui.rss
+  HEADER
+  TARGETPATH    \resource\apps
+END
+
+START RESOURCE  ..\data\httpdui_reg.rss
+#if defined(WINSCW)
+  TARGETPATH    \private\10003a3f\apps
+#else
+  TARGETPATH    \private\10003a3f\import\apps
+#endif
+END
+
+START RESOURCE  ..\data\httpdui_loc.rss
+  TARGETPATH    \resource\apps
+END
+
+LANG            SC
+
+SOURCEPATH      ..\src
+SOURCE          httpdui.cpp
+SOURCE          httpdui_capplication.cpp 
+SOURCE          httpdui_cappui.cpp
+SOURCE          httpdui_cdocument.cpp
+SOURCE          httpdui_cmainview.cpp
+SOURCE          httpdui_cmaincontainer.cpp
+SOURCE          cwlan.cpp
+
+LIBRARY         apparc.lib 
+LIBRARY         apengine.lib
+LIBRARY         avkon.lib
+LIBRARY         commdb.lib 
+LIBRARY         cone.lib 
+LIBRARY         eikcoctl.lib
+LIBRARY         eikcore.lib 
+LIBRARY         esock.lib
+LIBRARY         euser.lib 
+LIBRARY         fbscli.lib
+LIBRARY         insock.lib
+LIBRARY         aknnotify.lib 
+LIBRARY         eiksrv.lib 
+LIBRARY         eikdlg.lib 
+
+LIBRARY         httpdc.lib
+LIBRARY         httpdutil.lib

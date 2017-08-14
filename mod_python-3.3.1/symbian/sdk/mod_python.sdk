@@ -1,0 +1,40 @@
+${EPOC32}/release/winscw/udeb/httpd22-mod_python33.so   epoc32/release/winscw/udeb
+
+../sis/data/apache/conf/extensions/mod_python.conf      epoc32/winscw/c/data/apache/conf/extensions
+
+../../lib/python/mod_python/Cookie.py                   epoc32/winscw/c/resource/mod_python
+../../lib/python/mod_python/Session.py                  epoc32/winscw/c/resource/mod_python
+../../lib/python/mod_python/__init__.py                 epoc32/winscw/c/resource/mod_python
+../../lib/python/mod_python/apache.py                   epoc32/winscw/c/resource/mod_python
+../../lib/python/mod_python/cache.py                    epoc32/winscw/c/resource/mod_python
+../../lib/python/mod_python/cgihandler.py               epoc32/winscw/c/resource/mod_python
+../../lib/python/mod_python/importer.py                 epoc32/winscw/c/resource/mod_python
+../../lib/python/mod_python/psp.py                      epoc32/winscw/c/resource/mod_python
+../../lib/python/mod_python/publisher.py                epoc32/winscw/c/resource/mod_python
+../../lib/python/mod_python/python22.py                 epoc32/winscw/c/resource/mod_python
+../../lib/python/mod_python/util.py                     epoc32/winscw/c/resource/mod_python
+../../lib/python/mod_python/testhandler.py              epoc32/winscw/c/resource/mod_python
+
+../python-2.2.3/original/lib/cgi.py                     epoc32/winscw/c/resource
+../python-2.2.3/original/lib/dis.py                     epoc32/winscw/c/resource
+../python-2.2.3/original/lib/ftplib.py                  epoc32/winscw/c/resource
+../python-2.2.3/original/lib/gopherlib.py               epoc32/winscw/c/resource
+../python-2.2.3/original/lib/hmac.py                    epoc32/winscw/c/resource
+../python-2.2.3/original/lib/inspect.py                 epoc32/winscw/c/resource
+../python-2.2.3/original/lib/mimetypes.py               epoc32/winscw/c/resource
+../python-2.2.3/original/lib/posixpath.py               epoc32/winscw/c/resource
+../python-2.2.3/original/lib/token.py                   epoc32/winscw/c/resource
+../python-2.2.3/original/lib/tokenize.py                epoc32/winscw/c/resource
+../python-2.2.3/original/lib/urllib2.py                 epoc32/winscw/c/resource
+
+../python-2.2.3/modified/lib/pickle.py                  epoc32/winscw/c/resource
+../python-2.2.3/modified/lib/tempfile.py                epoc32/winscw/c/resource
+
+../python-2.3.6/original/lib/new.py                     epoc32/winscw/c/resource
+
+../../lib/python/mod_python/dummy_threading.py          epoc32/winscw/c/resource/mod_python
+../../lib/python/mod_python/pdb.py                      epoc32/winscw/c/resource/mod_python
+../../lib/python/mod_python/cPickle.py                  epoc32/winscw/c/resource/mod_python
+../../lib/python/mod_python/cStringIO.py                epoc32/winscw/c/resource/mod_python
+
+

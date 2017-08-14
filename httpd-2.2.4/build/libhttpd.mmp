@@ -1,0 +1,423 @@
+/* Copyright 2008 Nokia Corporation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/*
+ * This is a build file for Symbian.
+ */
+
+#include "../mmp.conf"
+
+MACRO           AP_DECLARE_EXPORT
+
+TARGET          libhttpd22.dll
+EXPORTLIBRARY   libhttpd.lib
+TARGETTYPE      DLL
+EPOCALLOWDLLDATA
+
+#if defined(WINS)
+deffile ..\build\symbian_bwins.def
+#else
+deffile ..\build\symbian_eabi.def
+#endif
+
+CAPABILITY      MWS_DLL_CAPABILITIES
+
+SYSTEMINCLUDE   \epoc32\include
+SYSTEMINCLUDE   \epoc32\include\stdapis
+SYSTEMINCLUDE   \epoc32\include\mws\httpd-2.2\include
+SYSTEMINCLUDE   \epoc32\include\mws\httpd-2.2\srclib\apr\include
+SYSTEMINCLUDE   \epoc32\include\mws\httpd-2.2\srclib\apr-util\include
+SYSTEMINCLUDE   \epoc32\include\mws\httpd-2.2\srclib\pcre
+SYSTEMINCLUDE   \epoc32\include\mws\httpd-2.2\os\symbian
+SYSTEMINCLUDE   \epoc32\include\mws\httpd-2.2\server\mpm\symbian
+SYSTEMINCLUDE   ..\server\mpm\symbian
+SYSTEMINCLUDE   ..\modules\http
+SYSTEMINCLUDE   ..\modules\mappers
+SYSTEMINCLUDE   ..\modules\proxy
+
+
+//
+// HTTPD
+// 
+SOURCEPATH      ..\server
+SOURCE          main.c
+
+SOURCEPATH      ..\server
+SOURCE          buildmark.c
+SOURCE          config.c
+SOURCE          connection.c
+SOURCE          core.c
+SOURCE          core_filters.c
+
+SOURCEPATH      ..\modules\http
+SOURCE          byterange_filter.c
+SOURCE          chunk_filter.c
+SOURCE          http_core.c
+SOURCE          http_etag.c
+SOURCE          http_filters.c
+SOURCE          http_protocol.c
+SOURCE          http_request.c
+
+SOURCEPATH      ..\server
+SOURCE          log.c
+SOURCE          protocol.c
+SOURCE          request.c
+SOURCE          vhost.c
+
+SOURCEPATH      ..\os\symbian
+SOURCE          modules.c
+SOURCE          util_symbian.cpp
+
+SOURCEPATH      ..\modules\mappers
+SOURCE          mod_so.c
+
+//
+// UTIL
+//
+SOURCEPATH      ..\server
+SOURCE          eoc_bucket.c
+SOURCE          error_bucket.c
+SOURCE          util.c
+SOURCE          util_cfgtree.c
+// Only needed by ebcdic
+// SOURCE          util_charset.c
+// Not needed.
+// SOURCE          util_debug.c
+// Ebcdic not relevant.
+// SOURCE          util_ebcdic.c
+SOURCE          util_filter.c
+SOURCE          util_md5.c
+SOURCE          util_pcre.c
+SOURCE          util_script.c
+SOURCE          util_time.c
+SOURCE          util_xml.c
+
+//
+// MPM
+//
+SOURCEPATH      ..\server
+SOURCE          listen.c
+SOURCE          mpm_common.c
+SOURCE          provider.c
+SOURCE          scoreboard.c
+
+//
+// MPM_SYMBIAN
+//
+SOURCEPATH      ..\server\mpm\symbian
+SOURCE          mpm_symbian.cpp
+SOURCE          mpm_symbian_spmt.c
+SOURCE          mpm_symbian_worker.cpp
+
+//
+// Modules built into Apache httpd.
+//
+#if defined(HAVE_MOD_ALIAS_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_alias.lib)
+#endif
+
+#if defined(HAVE_MOD_ASIS_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_asis.lib)
+#endif
+
+#if defined(HAVE_MOD_AUTH_BASIC_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_auth_basic.lib)
+#endif
+
+#if defined(HAVE_MOD_AUTH_DIGEST_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_auth_digest.lib)
+#endif
+
+#if defined(HAVE_MOD_AUTHN_ALIAS_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_authn_alias.lib)
+#endif
+
+#if defined(HAVE_MOD_AUTHN_ANON_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_authn_anon.lib)
+#endif
+
+#if defined(HAVE_MOD_AUTHN_DBD_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_authn_dbd.lib)
+#endif
+
+#if defined(HAVE_MOD_AUTHN_DBM_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_authn_dbm.lib)
+#endif
+
+#if defined(HAVE_MOD_AUTHN_DEFAULT_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_authn_default.lib)
+#endif
+
+#if defined(HAVE_MOD_AUTHN_FILE_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_authn_file.lib)
+#endif
+
+#if defined(HAVE_MOD_AUTHNZ_LDAP_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_authnz_ldap.lib)
+#endif
+
+#if defined(HAVE_MOD_AUTHZ_DBM_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_authz_dbm.lib)
+#endif
+
+#if defined(HAVE_MOD_AUTHZ_DEFAULT_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_authz_default.lib)
+#endif
+
+#if defined(HAVE_MOD_AUTHZ_GROUPFILE_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_authz_groupfile.lib)
+#endif
+
+#if defined(HAVE_MOD_AUTHZ_HOST_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_authz_host.lib)
+#endif
+
+#if defined(HAVE_MOD_AUTHZ_OWNER_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_authz_owner.lib)
+#endif
+
+#if defined(HAVE_MOD_AUTHZ_USER_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_authz_user.lib)
+#endif
+
+#if defined(HAVE_MOD_AUTOINDEX_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_autoindex.lib)
+#endif
+
+#if defined(HAVE_MOD_BUCKETEER_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_bucketeer.lib)
+#endif
+
+#if defined(HAVE_MOD_CACHE_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_cache.lib)
+#endif
+
+#if defined(HAVE_MOD_CASE_FILTER_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_case_filter.lib)
+#endif
+
+#if defined(HAVE_MOD_CASE_FILTER_IN_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_case_filter_in.lib)
+#endif
+
+#if defined(HAVE_MOD_CERN_META_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_cern_meta.lib)
+#endif
+
+#if defined(HAVE_MOD_CHARSET_LITE_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_charset_lite.lib)
+#endif
+
+#if defined(HAVE_MOD_DAV_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_dav.lib)
+#endif
+
+#if defined(HAVE_MOD_DAV_FS_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_dav_fs.lib)
+#endif
+
+#if defined(HAVE_MOD_DAV_LOCK_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_dav_lock.lib)
+#endif
+
+#if defined(HAVE_MOD_DEFLATE_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_deflate.lib)
+
+LIBRARY         libz.lib
+#endif
+
+#if defined(HAVE_MOD_DIR_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_dir.lib)
+#endif
+
+#if defined(HAVE_MOD_DUMPIO_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_dumpio.lib)
+#endif
+
+#if defined(HAVE_MOD_ECHO_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_echo.lib)
+#endif
+
+#if defined(HAVE_MOD_ENV_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_env.lib)
+#endif
+
+#if defined(HAVE_MOD_EXAMPLE_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_example.lib)
+#endif
+
+#if defined(HAVE_MOD_EXPIRES_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_expires.lib)
+#endif
+
+#if defined(HAVE_MOD_EXT_FILTER_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_ext_filter.lib)
+#endif
+
+#if defined(HAVE_MOD_FILTER_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_filter.lib)
+#endif
+
+#if defined(HAVE_MOD_HEADERS_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_headers.lib)
+#endif
+
+#if defined(HAVE_MOD_IDENT_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_ident.lib)
+#endif
+
+#if defined(HAVE_MOD_IMAGEMAP_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_imagemapp.lib)
+#endif
+
+#if defined(HAVE_MOD_INCLUDE_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_include.lib)
+#endif
+
+#if defined(HAVE_MOD_INFO_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_info.lib)
+#endif
+
+#if defined(HAVE_MOD_LOGIO_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_logio.lib)
+#endif
+
+#if defined(HAVE_MOD_LOG_CONFIG_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_log_config.lib)
+#endif
+
+#if defined(HAVE_MOD_LOG_FORENSIC_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_log_forensic.lib)
+#endif
+
+#if defined(HAVE_MOD_MIME_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_mime.lib)
+#endif
+
+#if defined(HAVE_MOD_MIME_MAGIC_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_mime_magic.lib)
+#endif
+
+#if defined(HAVE_MOD_NEGOTIATION_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_negotiation.lib)
+#endif
+
+#if defined(HAVE_MOD_PROXY_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_proxy.lib)
+#endif
+
+#if defined(HAVE_MOD_PROXY_AJP_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_proxy_ajp.lib)
+#endif
+
+#if defined(HAVE_MOD_PROXY_BALANCER_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_proxy_balancer.lib)
+#endif
+
+#if defined(HAVE_MOD_PROXY_CONNECT_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_proxy_connect.lib)
+#endif
+
+#if defined(HAVE_MOD_PROXY_FTP_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_proxy_ftp.lib)
+#endif
+
+#if defined(HAVE_MOD_PROXY_HTTP_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_proxy_http.lib)
+#endif
+
+#if defined(HAVE_MOD_REWRITE_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_rewrite.lib)
+#endif
+
+#if defined(HAVE_MOD_SETENVIF_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_setenvif.lib)
+#endif
+
+#if defined(HAVE_MOD_SPELING_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_speling.lib)
+#endif
+
+#if defined(HAVE_MOD_SSL_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_ssl.lib)
+#endif
+
+#if defined(HAVE_MOD_STATUS_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_status.lib)
+#endif
+
+#if defined(HAVE_MOD_USERDIR_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_userdir.lib)
+#endif
+
+#if defined(HAVE_MOD_USERTRACK_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_usertrack.lib)
+#endif
+
+#if defined(HAVE_MOD_VERSION_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_version.lib)
+#endif
+
+#if defined(HAVE_MOD_VHOST_ALIAS_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_vhost_alias.lib)
+#endif
+
+//
+// Symbian/S60 specific demonstration modules.
+//
+#if defined(HAVE_MOD_SYMBIAN_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_symbian.lib)
+
+LIBRARY         bluetooth.lib
+LIBRARY         calinterimapi.lib
+LIBRARY         cntmodel.lib
+LIBRARY         efsrv.lib 
+LIBRARY         logcli.lib
+LIBRARY         smcm.lib 
+#endif
+
+#if defined(HAVE_MOD_S60_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_s60.lib)
+
+LIBRARY         aknnotify.lib
+LIBRARY         ecam.lib 
+LIBRARY         favouritesengine.lib
+LIBRARY         fbscli.lib 
+#endif
+
+#if defined(HAVE_MOD_SYMBIAN_BUILTIN) || defined(HAVE_MOD_S60_BUILTIN)
+LIBRARY         imageconversion.lib
+LIBRARY         msgs.lib
+#endif
+
+//
+// Python integration.
+//
+#if defined(HAVE_MOD_PYTHON_BUILTIN)
+STATICLIBRARY   STATICLIBRARY_NAME(mod_python.lib )
+LIBRARY         python222.lib 
+#endif
+
+//
+// Httpd libraries.
+//
+STATICLIBRARY   STATICLIBRARY_NAME(libpcre.lib)
+LIBRARY         libaprutil.lib
+LIBRARY         libapr.lib
+LIBRARY         libpthread.lib
+LIBRARY         libc.lib
+LIBRARY         euser.lib
+
+LIBRARY         flogger.lib

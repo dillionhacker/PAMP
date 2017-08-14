@@ -1,0 +1,14 @@
+N: Hannu Kankaanp‰‰
+D: Initial port of PHP - version 5.1.4.
+
+N: Petteri Muilu
+E: petteri@futurice.com
+D: Port of PHP 5.2.2
+
+N: Mikko Heikel‰
+E: mikko.heikela@futurice.com
+D: Port of PHP 5.2.2
+
+N: Johan Wikman
+E: johan.wikman@nokia.com
+D: Cleanup, warning removal and build rearrangement.

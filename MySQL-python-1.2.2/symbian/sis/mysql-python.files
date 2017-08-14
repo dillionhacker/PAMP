@@ -1,0 +1,32 @@
+; Binaries
+;
+"EPOC32\release\PLATFORM\BUILD\_mysql.pyd" -"!:\sys\bin\_mysql.pyd"
+"EPOC32\release\PLATFORM\BUILD\array.pyd"  -"!:\sys\bin\array.pyd"
+
+; MySQLdb files.
+;
+"..\..\_mysql_exceptions.py"            - "!:\resource\_mysql_exceptions.py"
+
+"..\..\MySQLdb\__init__.py"             - "!:\resource\MySQLdb\__init__.py"
+;"..\..\MySQLdb\connections.py"         - "!:\resource\MySQLdb\connections.py"
+"..\MySQLdb\connections.py"             - "!:\resource\MySQLdb\connections.py"
+;"..\..\MySQLdb\converters.py"          - "!:\resource\MySQLdb\converters.py"
+"..\MySQLdb\converters.py"              - "!:\resource\MySQLdb\converters.py"
+"..\..\MySQLdb\cursors.py"              - "!:\resource\MySQLdb\cursors.py"
+"..\..\MySQLdb\release.py"              - "!:\resource\MySQLdb\release.py"
+"..\..\MySQLdb\times.py"                - "!:\resource\MySQLdb\times.py"
+
+"..\..\MySQLdb\constants\__init__.py"   - "!:\resource\MySQLdb\constants\__init__.py"
+"..\..\MySQLdb\constants\CLIENT.py"     - "!:\resource\MySQLdb\constants\CLIENT.py"
+"..\..\MySQLdb\constants\CR.py"         - "!:\resource\MySQLdb\constants\CR.py"
+"..\..\MySQLdb\constants\ER.py"         - "!:\resource\MySQLdb\constants\ER.py"
+"..\..\MySQLdb\constants\FIELD_TYPE.py" - "!:\resource\MySQLdb\constants\FIELD_TYPE.py"
+"..\..\MySQLdb\constants\FLAG.py"       - "!:\resource\MySQLdb\constants\FLAG.py"
+"..\..\MySQLdb\constants\REFRESH.py"    - "!:\resource\MySQLdb\constants\REFRESH.py"
+
+
+; Python 2.3.7 files.
+"Python-2.3.7\original\Lib\sets.py"     - "!:\resource\sets.py"
+
+; Fix for missing datetime.
+"datetime\modified\datetime.py"         - "!:\resource\datetime.py"

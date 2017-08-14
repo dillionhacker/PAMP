@@ -1,0 +1,4 @@
+CHANGES with mod_python-3.3.1 for Symbian/S60 1.0.2
+  *) Can now be used with threaded httpd.
+
+  *) Creation and cleanup of interpreter now clean.

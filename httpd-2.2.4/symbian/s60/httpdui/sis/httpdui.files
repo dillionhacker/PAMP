@@ -1,0 +1,5 @@
+"EPOC32\release\PLATFORM\BUILD\httpdui.exe"                  -"!:\sys\bin\httpdui.exe"
+"EPOC32\data\z\private\10003a3f\import\apps\httpdui_reg.rsc" -"!:\private\10003a3f\import\apps\httpdui_reg.rsc"
+"EPOC32\data\z\resource\apps\httpdui.rsc"                    -"!:\resource\apps\httpdui.rsc"
+"EPOC32\data\z\resource\apps\httpdui.mif"                    -"!:\resource\apps\httpdui.mif"
+"EPOC32\data\z\resource\apps\httpdui_loc.rsc"                -"!:\resource\apps\httpdui_loc.rsc"

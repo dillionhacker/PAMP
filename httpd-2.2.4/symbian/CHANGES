@@ -1,0 +1,35 @@
+CHANGES with Httpd 2.2.4 for Symbian/S60 1.0.2
+  *) Default stack-size of threads increased to 0x10000 (was 0x5000).
+
+  *) APR allows the IAP of a socket to be defined.
+
+  *) mod_proxy and mod_proxy_http works.
+
+  *) The command-line of httpd can be specified.
+
+  *) API for storing the memory (heapmap, heapmin, stack) settings at 
+     the server.
+
+  *) Loading of mod_python no longer forces httpd into single-thread mode.
+
+  *) Blocking IO (default on Symbian currently) can now be turned off using
+     the Symbian specific directive "AlwaysUseBlockingIO", thus making it
+     possible to experiment having "KeepAlive On".
+
+  *) A number of locking primitives enabled in APR.
+
+  *) HTTPD_ROOT now always "c:/data/apache".
+
+  *) Thread death detected in Symbian server.
+
+
+CHANGES with Httpd 2.2.4 for Symbian/S60 1.0.1
+
+  *) Targets for creating unsigned/signed installation packages 
+     renamed from usis/sis to sis/sisx.
+
+  *) All UIDs of DLLs removed. Simplifies the combining of 
+     components that have been built and signed using different 
+     certificates.
+
+  *) httpdui: Canceling WLAN selection box no longer causes error message.

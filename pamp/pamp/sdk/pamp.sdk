@@ -1,0 +1,13 @@
+# 
+# WINSC
+#
+${EPOC32}/release/winscw/udeb/pampui.exe                              epoc32/release/winscw/udeb
+${EPOC32}/release/winscw/udeb/z/private/10003a3f/apps/pampui_reg.rsc  epoc32/release/winscw/udeb/z/private/10003a3f/apps
+${EPOC32}/release/winscw/udeb/z/resource/apps/pampui.rsc              epoc32/release/winscw/udeb/z/resource/apps
+${EPOC32}/release/winscw/udeb/z/resource/apps/pampui.mif              epoc32/release/winscw/udeb/z/resource/apps
+${EPOC32}/release/winscw/udeb/z/resource/apps/pampui_loc.rsc          epoc32/release/winscw/udeb/z/resource/apps
+#
+# CONTENT
+#
+../sis/data/apache/htdocs/php/index.html                              epoc32/winscw/c/data/apache/htdocs/php
+../sis/data/apache/htdocs/php/phpinfo.php                             epoc32/winscw/c/data/apache/htdocs/php
